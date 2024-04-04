@@ -21,6 +21,9 @@ def df_getter():
 
     # Use pandas to read the CSV data into a DataFrame
     df = pd.read_csv(StringIO(data))
+    df.time = pd.to_datetime(df['time'])
+    df.set_index('time', inplace=True)
+
     return df
 
 df = df_getter()
