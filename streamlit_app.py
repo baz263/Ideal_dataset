@@ -49,6 +49,6 @@ fig3 = power_hour_count(df)
 col2.pyplot(fig3, use_container_width=True)
 
 fig4 = day_consumption_outliersremoved(df)
-col2.pyplot(fig4)
+col2.pyplot(fig4, use_container_width=False)
 
 
