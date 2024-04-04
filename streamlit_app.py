@@ -4,7 +4,7 @@ from io import StringIO
 import pandas as pd
 from heatmap import heatmap2
 from hourly_consumption import hourly_consumption2
-from power_hour_count.py import power_hour_count
+from power_hour_count import power_hour_count
 
 def df_getter():
     session = boto3.Session(
