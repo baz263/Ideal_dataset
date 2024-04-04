@@ -34,13 +34,13 @@ df = df_getter()
 
 top_section= st.empty()
 fig2 = hourly_consumption2(df)
-top_section.plotly_chart(fig2)
+st.plotly_chart(fig2)
 
 col1, col2 = st.columns([1,2])
 
 
 fig1 = heatmap2(df)
-fig1.update_layout(autosize=True, use_container_width=True)
+fig1.update_layout(autosize=False, width=400)
 col1.plotly_chart(fig1)
 
 
