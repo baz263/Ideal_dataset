@@ -53,7 +53,7 @@ with st.sidebar:
 if selected_house is None:
     st.error("Please select a house from the sidebar.")
 else:
-    df = df_getter(selected_house)  # Load the DataFrame for the selected house
+    df = df_getter('61')  # Load the DataFrame for the selected house
 
 
 
