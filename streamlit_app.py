@@ -43,7 +43,7 @@ houses = ['hourly_61', 'hourly_62']
 
         
 houses = ['hourly_61', 'hourly_62']
-selected_house = None
+selected_house = 'hourly_61'
 
 with st.sidebar:
     for house in houses:
