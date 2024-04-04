@@ -15,6 +15,14 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
+st.markdown("""
+  <style>
+    .css-13sdm1b.e16nr0p33 {
+      margin-top: -75px;
+    }
+  </style>
+""", unsafe_allow_html=True)
+
 def df_getter(homeid):
     session = boto3.Session(
         aws_access_key_id = st.secrets['AWS']['AWS_ACCESS_KEY_ID'],
