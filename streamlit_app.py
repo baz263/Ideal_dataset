@@ -7,6 +7,13 @@ from hourly_consumption import hourly_consumption2
 from power_hour_count import power_hour_count
 from day_consumption import day_consumption_outliersremoved
 
+st.markdown("""
+    <style>
+    .reportview-container .main .block-container {
+        padding: 0rem;
+    }
+    </style>
+    """, unsafe_allow_html=True)
 
 def df_getter(homeid):
     session = boto3.Session(
