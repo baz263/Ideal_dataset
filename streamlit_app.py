@@ -51,9 +51,9 @@ with st.sidebar:
             break  # Stop checking other checkboxes once one is found
 
 if selected_house is None:
-    st.error("Please select a house from the sidebar.")
+    df = df_getter(61)
 else:
-    df = df_getter('61')  # Load the DataFrame for the selected house
+    df = df_getter(selected_house)  # Load the DataFrame for the selected house
 
 
 
