@@ -36,6 +36,6 @@ fig = heatmap2(df)
 st.plotly_chart(fig)
 
 fig2 = hourly_consumption2(df)
-st.plotly_chart(fig)
+st.plotly_chart(fig2)
 
 
