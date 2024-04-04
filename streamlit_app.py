@@ -34,8 +34,11 @@ df = df_getter()
 
 tab1, tab2 = st.tabs(["House Breakdown", "Forecasting"])
 
+houses = ['hourly_61', 'hourly_62']
+
 with st.sidebar:
-    st.write('cunty mccunt')
+    for house in houses:
+        st.checkbox(house) 
 
 with tab1:
     st.header('House breakdwon')
