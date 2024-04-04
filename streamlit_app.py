@@ -69,13 +69,15 @@ with tab1:
 
     top_section= st.empty()
 
-    time_periods = ['Last 30 days', 'Last 365 days', 'All']
+    time_periods = ['Last 7 days','Last 30 days', 'Last 365 days', 'All']
 
     # Create the dropdown menu and get the selected time period
     selected_time_period = st.selectbox('Select time period', time_periods)
 
     # Filter the DataFrame based on the selected time period
-    if selected_time_period == 'Last 30 days':
+    if selected_time_period == 'Last 7 days':
+        df2 = df[-7*24:]
+    elif selected_time_period == 'Last 30 days':
         df2 = df[-30*24:]
     elif selected_time_period == 'Last 365 days':
         df2 = df[-7*24*365:]
