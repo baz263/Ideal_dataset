@@ -61,11 +61,11 @@ selected_house = None
 
 with st.sidebar:
     for house in houses:
-        st.checkbox(house)
+        st.checkbox(house, key=house)
+
 if selected_house is None:
     df = df_getter(61)
 else:
-    st.write('cunt')
     df = df_getter(selected_house)  # Load the DataFrame for the selected house
 
 
