@@ -46,12 +46,9 @@ col1.plotly_chart(fig1)
 
 
 fig3 = power_hour_count(df)
-fig3.update_layout(autosize=False, width=400)
 col2.pyplot(fig3)
 
 fig4 = day_consumption_outliersremoved(df)
-fig4.update_layout(autosize=False, width=400)
-
 col2.pyplot(fig4)
 
 
