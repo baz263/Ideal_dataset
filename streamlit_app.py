@@ -58,7 +58,7 @@ with st.sidebar:
     st.markdown("""
   <style>
     .css-13sdm1b.e16nr0p33 {
-      margin-top: -75px;
+      margin-right: -75px;
     }
   </style>
 """, unsafe_allow_html=True)
