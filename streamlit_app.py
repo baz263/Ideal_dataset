@@ -40,7 +40,7 @@ col1, col2 = st.columns([1,2], gap='large')
 
 with col1:
     fig1 = heatmap2(df)
-    fig1.update_layout(autosize=False, width=400)
+    fig1.update_layout(autosize=True)
     st.plotly_chart(fig1)
 
 
