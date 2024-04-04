@@ -71,7 +71,7 @@ with tab1:
     fig2 = hourly_consumption2(df)
     st.plotly_chart(fig2)
 
-    col1, col2 = st.columns([8,3], gap='large')
+    col1, col2 = st.columns([4,3], gap='large')
 
     with col2:
         fig1 = heatmap2(df)
