@@ -53,8 +53,7 @@ with st.sidebar:
     for house in houses:
         if st.checkbox(house):
             selected_house = house
-            break  # Stop checking other checkboxes once one is found
-
+            break
 if selected_house is None:
     df = df_getter(61)
 else:
