@@ -7,13 +7,8 @@ from hourly_consumption import hourly_consumption2
 from power_hour_count import power_hour_count
 from day_consumption import day_consumption_outliersremoved
 
-st.markdown("""
-    <style>
-    .reportview-container .main .block-container {
-        padding: 0rem;
-    }
-    </style>
-    """, unsafe_allow_html=True)
+
+st.set_page_config(layout="wide")
 
 
 
@@ -55,14 +50,6 @@ selected_house = None
 
 
 with st.sidebar:
-    st.markdown("""
-  <style>
-    .css-13sdm1b.e16nr0p33 {
-      margin-right: -75px;
-    }
-  </style>
-""", unsafe_allow_html=True)
-
     for house in houses:
         if st.checkbox(house):
             selected_house = house
