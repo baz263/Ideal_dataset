@@ -39,6 +39,6 @@ fig2 = hourly_consumption2(df)
 st.plotly_chart(fig2)
 
 fig3 = power_hour_count(df)
-st.pyplot(fig3.gcf())
+st.pyplot(fig3)
 
 
