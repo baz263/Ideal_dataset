@@ -34,7 +34,7 @@ def power_hour_count(df, homeid=None):
     }
 
     # Convert the dictionary to a pandas DataFrame
-    # df_counts = pd.DataFrame(list(counts.items()), columns=['Range', 'Count'])
+    df_counts = pd.DataFrame(list(counts.items()), columns=['Range', 'Count'])
 
     # # Create the barplot
     # sns.barplot(x='Count', y='Range', data=df_counts)
