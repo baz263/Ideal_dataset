@@ -1,12 +1,13 @@
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-def day_consumption(df, homeid = None):
-    fig, axs = plt.subplots(1,1, figsize = (10, 5))
-    order = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
-    sns.boxplot(data = df, x = df.day, y = 'electric-combined', ax=axs, order = order)
-    plt.title(f'daily consumption for home {homeid}')
-    #axs.get_yaxis().get_major_formatter().set_scientific(False)
-    
+def day_consumption_outliersremoved(df):
+    fig, ax = plt.subplots()
 
+    df = df['electric-combined'].copy().reset_index()
+    Q1 = df.quantile(0.25)
+    Q3 = df.quantile(0.75)
+    IQR = Q3 - Q1
+    df = df[(df > (Q1 - 1.5 * IQR)) & (df < (Q3 + 1.5 * IQR))]
+    sns.boxplot(data = df, x = df.time.dt.day_name(), y = 'electric-combined', ax=ax)
     return fig

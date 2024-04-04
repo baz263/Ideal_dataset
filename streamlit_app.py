@@ -5,7 +5,7 @@ import pandas as pd
 from heatmap import heatmap2
 from hourly_consumption import hourly_consumption2
 from power_hour_count import power_hour_count
-from day_consumption import day_consumption
+from day_consumption import day_consumption_outliersremoved
 
 def df_getter():
     session = boto3.Session(
@@ -42,7 +42,7 @@ st.plotly_chart(fig2)
 fig3 = power_hour_count(df)
 st.pyplot(fig3)
 
-fig4 = day_consumption(df)
+fig4 = day_consumption_outliersremoved(df)
 st.pyplot(fig4)
 
 
