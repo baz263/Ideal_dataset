@@ -22,4 +22,4 @@ data = response['Body'].read().decode('utf-8')
 # Use pandas to read the CSV data into a DataFrame
 df = pd.read_csv(StringIO(data))
 
-print(df)
+st.dataframe(df)
