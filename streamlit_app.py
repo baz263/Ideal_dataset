@@ -34,7 +34,7 @@ df = df_getter()
 
 top_section= st.empty()
 fig2 = hourly_consumption2(df)
-plotly_chart(fig2)
+st.plotly_chart(fig2)
 
 col1, col2 = st.columns([3,2])
 
