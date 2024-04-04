@@ -1,5 +1,6 @@
 import seaborn as sns
 import plotly as plt
+import pandas as pd
 
 def bin_builder(df):
     count_under_10000 = df[(df['electric-combined'] < 10)].gas.count()
