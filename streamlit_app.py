@@ -36,7 +36,7 @@ top_section= st.empty()
 fig2 = hourly_consumption2(df)
 st.plotly_chart(fig2)
 
-col1, col2 = st.columns([8,2], gap='large')
+col1, col2 = st.columns([3,5], gap='large')
 
 with col1:
     fig1 = heatmap2(df)
