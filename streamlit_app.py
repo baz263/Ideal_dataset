@@ -46,8 +46,6 @@ houses = ['hourly_61', 'hourly_62']
 
         
 houses = ['61', '62', '63', '65', '73', '90', '96', '106', '105', '136', '128', '139', '140', '145', '146', '168', '169', '171', '162', '175', '208', '212', '225', '228', '227', '231', '238', '242', '249', '255', '262', '264', '263', '266', '268', '259', '276', '311', '328']
-selected_house = None
-
 
 # with st.sidebar:
 #     for house in houses:
@@ -67,6 +65,7 @@ for house in houses:
         session_state[house] = False  # Initially, all checkboxes are unchecked
 
 with st.sidebar:
+    st.write('House choices:')
     for house in houses:
         # Create a checkbox for each house and link it to the session state
         was_checked = session_state[house]
@@ -87,7 +86,7 @@ else:
     df = df_getter(selected_house) 
 
 with tab1:
-    st.header('House breakdwon')
+    st.header('House breakdown')
 
 
     top_section= st.empty()
