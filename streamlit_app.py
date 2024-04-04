@@ -65,6 +65,7 @@ with st.sidebar:
 if selected_house is None:
     df = df_getter(61)
 else:
+    st.write('cunt')
     df = df_getter(selected_house)  # Load the DataFrame for the selected house
 
 
