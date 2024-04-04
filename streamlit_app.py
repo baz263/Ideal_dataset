@@ -41,8 +41,8 @@ houses = ['hourly_61', 'hourly_62']
 #         st.checkbox(house)
 
         
-houses = ['hourly_61', 'hourly_62']
-selected_house = 'hourly_61'
+houses = [61, 62]
+selected_house = None
 
 with st.sidebar:
     for house in houses:
