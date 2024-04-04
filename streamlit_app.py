@@ -31,7 +31,6 @@ def df_getter():
 
 df = df_getter()
 
-st.write('boob')
 
 fig = heatmap2(df)
 st.plotly_chart(fig)
