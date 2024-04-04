@@ -8,7 +8,7 @@ from power_hour_count import power_hour_count
 from day_consumption import day_consumption_outliersremoved
 
 
-def df_getter():
+def df_getter(homeid):
     session = boto3.Session(
         aws_access_key_id = st.secrets['AWS']['AWS_ACCESS_KEY_ID'],
         aws_secret_access_key = st.secrets['AWS']['AWS_SECRET_ACCESS_KEY'])
@@ -17,7 +17,7 @@ def df_getter():
     # Create an S3 resource object using the session
     s3 = session.resource('s3')
 
-    obj = s3.Object('electric1hcsvs', '1H_csv/hourly_136.csv')
+    obj = s3.Object('electric1hcsvs', f'1H_csv/hourly_{homeid}.csv')
     response = obj.get()
 
     # The object's data is in the 'Body' field of the response
@@ -36,9 +36,28 @@ tab1, tab2 = st.tabs(["House Breakdown", "Forecasting"])
 
 houses = ['hourly_61', 'hourly_62']
 
+
+# with st.sidebar:
+#     for house in houses:
+#         st.checkbox(house)
+
+        
+houses = ['hourly_61', 'hourly_62']
+selected_house = None
+
 with st.sidebar:
     for house in houses:
-        st.checkbox(house) 
+        if st.checkbox(house):
+            selected_house = house
+            break  # Stop checking other checkboxes once one is found
+
+if selected_house is None:
+    st.error("Please select a house from the sidebar.")
+else:
+    df = df_getter(selected_house)  # Load the DataFrame for the selected house
+
+
+
 
 with tab1:
     st.header('House breakdwon')
