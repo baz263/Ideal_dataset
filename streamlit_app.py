@@ -21,5 +21,7 @@ def df_getter():
 
     # Use pandas to read the CSV data into a DataFrame
     df = pd.read_csv(StringIO(data))
+    return df
+df = df_getter()
 
 st.dataframe(df)
