@@ -77,7 +77,7 @@ with tab1:
         fig1 = heatmap2(df)
         fig1.update_layout(autosize = True)
 
-        st.plotly_chart(fig1)
+        st.plotly_chart(fig1,use_container_width =True)
 
 
     with col1:
