@@ -1,6 +1,7 @@
 import streamlit as st
 import boto3
 from io import StringIO
+import pandas as pd
 
 
 def df_getter():
