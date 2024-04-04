@@ -68,7 +68,24 @@ with tab1:
 
 
     top_section= st.empty()
-    fig2 = hourly_consumption2(df)
+
+    time_periods = ['Last 30 days', 'Last 365 days', 'All']
+
+    # Create the dropdown menu and get the selected time period
+    selected_time_period = st.selectbox('Select time period', time_periods)
+
+    # Filter the DataFrame based on the selected time period
+    if selected_time_period == 'Last 30 days':
+        df2 = df[-30*24:]
+    elif selected_time_period == 'Last 365 days':
+        df2 = df[-7*24*365]
+    elif selected_time_period == 'All':
+        df2 = df
+    else:
+        df2 = df[-30*24:]
+
+
+    fig2 = hourly_consumption2(df2)
     st.plotly_chart(fig2,use_container_width=True)
 
     col1, col2 = st.columns([3,2])
