@@ -34,22 +34,40 @@ def power_hour_count(df, homeid=None):
     }
 
     # Convert the dictionary to a pandas DataFrame
-    df_counts = pd.DataFrame(list(counts.items()), columns=['Range', 'Count'])
+    # df_counts = pd.DataFrame(list(counts.items()), columns=['Range', 'Count'])
 
-    # Create the barplot
-    sns.barplot(x='Count', y='Range', data=df_counts)
-    plt.title('Number of hours where electricity consumption falls within a given range')
+    # # Create the barplot
+    # sns.barplot(x='Count', y='Range', data=df_counts)
+    # plt.title('Number of hours where electricity consumption falls within a given range')
+
+    # for i in range(df_counts.shape[0]):
+    #     plt.text(df_counts.Count[i], i, df_counts.Count[i], va='center')
+
+    #    # Calculate the average
+    # avg = df_counts['Count'].mean()
+
+    # # Draw a vertical line at the average point
+    # plt.axvline(x=avg, color='r', linestyle='--')
+
+
+    # fig = plt.gcf()
+    # # Show the plot
+    # return fig
+
+    # Create the barplot on the axes
+    sns.barplot(x='Count', y='Range', data=df_counts, ax=ax)
+
+    # Set the title of the axes
+    ax.set_title('Number of hours where electricity consumption falls within a given range')
 
     for i in range(df_counts.shape[0]):
-        plt.text(df_counts.Count[i], i, df_counts.Count[i], va='center')
+        ax.text(df_counts.Count[i], i, df_counts.Count[i], va='center')
 
-       # Calculate the average
+    # Calculate the average
     avg = df_counts['Count'].mean()
 
     # Draw a vertical line at the average point
-    plt.axvline(x=avg, color='r', linestyle='--')
+    ax.axvline(x=avg, color='r', linestyle='--')
 
-
-    fig = plt.gcf()
-    # Show the plot
+    # Return the figure
     return fig
