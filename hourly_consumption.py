@@ -1,6 +1,8 @@
 
 import plotly.graph_objects as go
 
+
+
 def hourly_consumption2(df, homeid=None):
     # Calculate the average hourly consumption
     average_consumption = df['electric-combined'].mean()

@@ -4,6 +4,7 @@ from io import StringIO
 import pandas as pd
 from heatmap import heatmap2
 from hourly_consumption import hourly_consumption2
+from power_hour_count.py import power_hour_count
 
 def df_getter():
     session = boto3.Session(
@@ -29,7 +30,6 @@ def df_getter():
 
 df = df_getter()
 
-st.dataframe(df)
 st.write('boob')
 
 fig = heatmap2(df)
@@ -37,5 +37,8 @@ st.plotly_chart(fig)
 
 fig2 = hourly_consumption2(df)
 st.plotly_chart(fig2)
+
+fig3 = power_hour_count(df)
+st.image(fig3)
 
 
