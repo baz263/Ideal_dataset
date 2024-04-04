@@ -32,24 +32,35 @@ def df_getter():
 
 df = df_getter()
 
-top_section= st.empty()
-fig2 = hourly_consumption2(df)
-st.plotly_chart(fig2)
-
-col1, col2 = st.columns([8,3], gap='large')
-
-with col2:
-    fig1 = heatmap2(df)
-    fig1.update_layout(autosize = True)
-
-    st.plotly_chart(fig1)
+tab1, tab2 = st.tabs(["House Breakdown", "Forecasting"])
 
 
-with col1:
-    fig3 = power_hour_count(df)
-    st.pyplot(fig3, use_container_width=True)
+with tab1:
+    st.header('House breakdwon')
 
-    fig4 = day_consumption_outliersremoved(df)
-    st.pyplot(fig4, use_container_width=True)
+
+    top_section= st.empty()
+    fig2 = hourly_consumption2(df)
+    st.plotly_chart(fig2)
+
+    col1, col2 = st.columns([8,3], gap='large')
+
+    with col2:
+        fig1 = heatmap2(df)
+        fig1.update_layout(autosize = True)
+
+        st.plotly_chart(fig1)
+
+
+    with col1:
+        fig3 = power_hour_count(df)
+        st.pyplot(fig3, use_container_width=True)
+
+        fig4 = day_consumption_outliersremoved(df)
+        st.pyplot(fig4, use_container_width=True)
+
+with tab2:
+    st.write('boob')
+
 
 
