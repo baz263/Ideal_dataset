@@ -7,6 +7,8 @@ from hourly_consumption import hourly_consumption2
 from power_hour_count import power_hour_count
 from day_consumption import day_consumption_outliersremoved
 
+col1, col2 = st.columns(2)
+
 def df_getter():
     session = boto3.Session(
         aws_access_key_id = st.secrets['AWS']['AWS_ACCESS_KEY_ID'],
@@ -33,15 +35,15 @@ df = df_getter()
 
 
 fig = heatmap2(df)
-st.plotly_chart(fig)
+col1.st.plotly_chart(fig)
 
 fig2 = hourly_consumption2(df)
-st.plotly_chart(fig2)
+col1.st.plotly_chart(fig2)
 
 fig3 = power_hour_count(df)
-st.pyplot(fig3)
+col2.st.pyplot(fig3)
 
 fig4 = day_consumption_outliersremoved(df)
-st.pyplot(fig4)
+col2.st.pyplot(fig4)
 
 
