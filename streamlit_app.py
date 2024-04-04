@@ -3,6 +3,7 @@ import boto3
 from io import StringIO
 import pandas as pd
 from heatmap import heatmap2
+from hourly_consumption import hourly_consumption2
 
 def df_getter():
     session = boto3.Session(
@@ -32,6 +33,9 @@ st.dataframe(df)
 st.write('boob')
 
 fig = heatmap2(df)
+st.plotly_chart(fig)
+
+fig2 = hourly_consumption2(df)
 st.plotly_chart(fig)
 
 
