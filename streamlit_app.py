@@ -7,7 +7,7 @@ from hourly_consumption import hourly_consumption2
 from power_hour_count import power_hour_count
 from day_consumption import day_consumption_outliersremoved
 
-col1, col2 = st.beta_columns(2)
+col1, col2 = st.columns(2)
 
 def df_getter():
     session = boto3.Session(
