@@ -1,6 +1,6 @@
 import streamlit as st
 import boto3
-import StringIO
+from io import StringIO
 
 
 st.text('boob')
