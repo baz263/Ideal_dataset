@@ -53,7 +53,7 @@ def power_hour_count(df, homeid=None):
     # fig = plt.gcf()
     # # Show the plot
     # return fig
-
+    fig, ax = plt.subplots()
     # Create the barplot on the axes
     sns.barplot(x='Count', y='Range', data=df_counts, ax=ax)
 
