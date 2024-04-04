@@ -1,1 +1,1 @@
-st.write('boob')
+st.text('boob')
