@@ -49,11 +49,19 @@ houses = ['61', '62', '63', '65', '73', '90', '96', '106', '105', '136', '128', 
 selected_house = None
 
 
+# with st.sidebar:
+#     for house in houses:
+#         if st.checkbox(house):
+#             selected_house = house
+#             break
+# if selected_house is None:
+#     df = df_getter(61)
+# else:
+#     df = df_getter(selected_house)  # Load the DataFrame for the selected house
+
 with st.sidebar:
     for house in houses:
-        if st.checkbox(house):
-            selected_house = house
-            break
+        st.checkbox(house)
 if selected_house is None:
     df = df_getter(61)
 else:
