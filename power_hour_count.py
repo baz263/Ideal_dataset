@@ -1,5 +1,5 @@
 import seaborn as sns
-import matplotlib as plt
+import matplotlib.pyplot as plt
 import pandas as pd
 
 def bin_builder(df):
