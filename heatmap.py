@@ -1,4 +1,5 @@
 
+import plotly.graph_objects as go
 
 def heatmap2(df, homeid=None):
     data = df[['electric-combined']]
@@ -20,4 +21,4 @@ def heatmap2(df, homeid=None):
         xaxis_title="Hour of the day",
         yaxis_title = 'Date')
 
-    fig.show()
+    return fig

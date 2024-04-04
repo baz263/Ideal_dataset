@@ -2,6 +2,7 @@ import streamlit as st
 import boto3
 from io import StringIO
 import pandas as pd
+from heatmap import heatmap2
 
 def df_getter():
     session = boto3.Session(
@@ -26,3 +27,8 @@ df = df_getter()
 
 st.dataframe(df)
 st.write('boob')
+
+fig = heatmap(df)
+st.plotly_chart(fig)
+
+
