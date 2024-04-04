@@ -3,7 +3,6 @@ import boto3
 from io import StringIO
 
 
-st.write('boob')
 def df_getter():
     session = boto3.Session(
         aws_access_key_id=st.secrets('AWS_ACCESS_KEY_ID'),
@@ -22,6 +21,8 @@ def df_getter():
     # Use pandas to read the CSV data into a DataFrame
     df = pd.read_csv(StringIO(data))
     return df
+
 df = df_getter()
 
+st.write('boob')
 st.dataframe(df)
