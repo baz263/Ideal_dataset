@@ -34,6 +34,8 @@ df = df_getter()
 
 tab1, tab2 = st.tabs(["House Breakdown", "Forecasting"])
 
+with st.sidebar:
+    st.write('cunty mccunt')
 
 with tab1:
     st.header('House breakdwon')
