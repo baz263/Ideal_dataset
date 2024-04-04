@@ -37,7 +37,7 @@ def power_hour_count(df, homeid=None):
     df_counts = pd.DataFrame(list(counts.items()), columns=['Range', 'Count'])
 
     # Create the barplot
-    fig = sns.barplot(x='Count', y='Range', data=df_counts)
+    sns.barplot(x='Count', y='Range', data=df_counts)
     plt.title('Number of hours where electricity consumption falls within a given range')
 
     for i in range(df_counts.shape[0]):
@@ -50,6 +50,6 @@ def power_hour_count(df, homeid=None):
     plt.axvline(x=avg, color='r', linestyle='--')
 
 
-
+    fig = plt.gcf()
     # Show the plot
     return fig
