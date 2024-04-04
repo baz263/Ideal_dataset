@@ -3,7 +3,6 @@ import boto3
 from io import StringIO
 import pandas as pd
 
-
 def df_getter():
     session = boto3.Session(
         aws_access_key_id = st.secrets['AWS']['AWS_ACCESS_KEY_ID'],
