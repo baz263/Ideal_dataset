@@ -35,6 +35,7 @@ df = df_getter()
 
 
 fig = heatmap2(df)
+fig.update_layout(autosize=False, width=400)
 col1.plotly_chart(fig)
 
 fig2 = hourly_consumption2(df)
