@@ -3,6 +3,8 @@ import plotly.graph_objects as go
 
 def heatmap2(df, homeid=None):
     data = df[['electric-combined']]
+    data.index = data.time
+
     pivot_data = data.pivot_table(index = data.index.date, columns = data.index.hour, values = 'electric-combined')
 
     fig = go.Figure(data=go.Heatmap(
