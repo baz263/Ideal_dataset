@@ -15,13 +15,7 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-st.markdown("""
-  <style>
-    .css-13sdm1b.e16nr0p33 {
-      margin-top: -75px;
-    }
-  </style>
-""", unsafe_allow_html=True)
+
 
 def df_getter(homeid):
     session = boto3.Session(
@@ -59,7 +53,16 @@ houses = ['hourly_61', 'hourly_62']
 houses = ['61', '62', '63', '65', '73', '90', '96', '106', '105', '136', '128', '139', '140', '145', '146', '168', '169', '171', '162', '175', '208', '212', '225', '228', '227', '231', '238', '242', '249', '255', '262', '264', '263', '266', '268', '259', '276', '311', '328']
 selected_house = None
 
+
 with st.sidebar:
+    st.markdown("""
+  <style>
+    .css-13sdm1b.e16nr0p33 {
+      margin-top: -75px;
+    }
+  </style>
+""", unsafe_allow_html=True)
+
     for house in houses:
         if st.checkbox(house):
             selected_house = house
