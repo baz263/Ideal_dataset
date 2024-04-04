@@ -36,19 +36,22 @@ top_section= st.empty()
 fig2 = hourly_consumption2(df)
 st.plotly_chart(fig2)
 
-col1, col2 = st.columns([1,2])
+with st.container():
+        
+
+    col1, col2 = st.columns([1,2])
 
 
-fig1 = heatmap2(df)
-fig1.update_layout(autosize=False, width=400)
-col1.plotly_chart(fig1)
+    fig1 = heatmap2(df)
+    fig1.update_layout(autosize=False, width=400)
+    col1.plotly_chart(fig1)
 
 
 
-fig3 = power_hour_count(df)
-col2.pyplot(fig3, use_container_width=True)
+    fig3 = power_hour_count(df)
+    col2.pyplot(fig3, use_container_width=True)
 
-fig4 = day_consumption_outliersremoved(df)
-col2.pyplot(fig4, use_container_width=True)
+    fig4 = day_consumption_outliersremoved(df)
+    col2.pyplot(fig4, use_container_width=True)
 
 
