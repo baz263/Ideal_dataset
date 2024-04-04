@@ -41,7 +41,7 @@ col1, col2 = st.columns([30,30])
 
 fig1 = heatmap2(df)
 fig1.update_layout(autosize=False, width=400)
-st.sidebar.plotly_chart(fig1)
+st.plotly_chart(fig1)
 
 
 
