@@ -59,21 +59,32 @@ selected_house = None
 # else:
 #     df = df_getter(selected_house)  # Load the DataFrame for the selected house
 
+session_state = st.session_state
 
+# Initialize the session state for the checkboxes if it doesn't exist
+for house in houses:
+    if house not in session_state:
+        session_state[house] = False  # Initially, all checkboxes are unchecked
 
 with st.sidebar:
     for house in houses:
-        st.checkbox(house, key=house)
-    for house in houses:
-        if st.checkbox(house):
-            selected_house = house
-            break
+        # Create a checkbox for each house and link it to the session state
+        was_checked = session_state[house]
+        session_state[house] = st.checkbox(house, value=was_checked)
+
+        # If this checkbox was just checked, uncheck all other checkboxes
+        if session_state[house] and not was_checked:
+            for other_house in houses:
+                if other_house != house:
+                    session_state[other_house] = False
+
+# Find the selected house
+selected_house = next((house for house in houses if session_state[house]), None)
+
 if selected_house is None:
     df = df_getter(61)
 else:
-    df = df_getter(selected_house)  # Load the DataFrame for the selected house
-
-
+    df = df_getter(selected_house) 
 
 with tab1:
     st.header('House breakdwon')
