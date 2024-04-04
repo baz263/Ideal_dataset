@@ -28,7 +28,7 @@ df = df_getter()
 st.dataframe(df)
 st.write('boob')
 
-fig = heatmap(df)
+fig = heatmap2(df)
 st.plotly_chart(fig)
 
 
