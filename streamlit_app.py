@@ -30,7 +30,6 @@ def df_getter(homeid):
 
     return df
 
-df = df_getter()
 
 tab1, tab2 = st.tabs(["House Breakdown", "Forecasting"])
 
