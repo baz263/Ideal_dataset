@@ -6,7 +6,7 @@ def day_consumption(df, homeid = None):
     order = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'holiday']
     sns.boxplot(data = df, x = df.day, y = 'electric-combined', ax=axs, order = order)
     plt.title(f'daily consumption for home {homeid}')
-    axs.get_yaxis().get_major_formatter().set_scientific(False)
+    #axs.get_yaxis().get_major_formatter().set_scientific(False)
     
 
     return fig
