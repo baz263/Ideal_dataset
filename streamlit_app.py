@@ -35,15 +35,15 @@ df = df_getter()
 
 
 fig = heatmap2(df)
-col1.st.plotly_chart(fig)
+col1.plotly_chart(fig)
 
 fig2 = hourly_consumption2(df)
-col1.st.plotly_chart(fig2)
+col1.plotly_chart(fig2)
 
 fig3 = power_hour_count(df)
-col2.st.pyplot(fig3)
+col2.pyplot(fig3)
 
 fig4 = day_consumption_outliersremoved(df)
-col2.st.pyplot(fig4)
+col2.pyplot(fig4)
 
 
