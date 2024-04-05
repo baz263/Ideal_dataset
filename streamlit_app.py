@@ -123,10 +123,12 @@ with tab1:
 
     with col1:
         fig3 = power_hour_count(df)
-        st.pyplot(fig3, width = 400)
+        fig3.update_layout(size=400)
+        st.pyplot(fig3)
 
         fig4 = day_consumption_outliersremoved(df)
-        st.pyplot(fig4, width = 400)
+        fig3.update_layout(size=400)
+        st.pyplot(fig4)
 
 with tab2:
     st.write('boob')
