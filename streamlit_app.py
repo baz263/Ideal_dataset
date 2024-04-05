@@ -35,7 +35,7 @@ def df_getter(homeid):
     return df
 
 
-tab1, tab2, tab3 = st.tabs(["House Breakdown", "Forecasting", 'Datframe'])
+tab1, tab2, tab3 = st.tabs(["House Breakdown", "Forecasting", 'Dataframe'])
 
 houses = ['hourly_61', 'hourly_62']
 
@@ -46,6 +46,7 @@ houses = ['hourly_61', 'hourly_62']
 
         
 houses = ['61', '62', '63', '65', '73', '90', '96', '106', '105', '136', '128', '139', '140', '145', '146', '168', '169', '171', '162', '175', '208', '212', '225', '228', '227', '231', '238', '242', '249', '255', '262', '264', '263', '266', '268', '259', '276', '311', '328']
+enhanced_houses =['61', '63', '65', '73', '90', '96', '106', '105', '136', '128', '139', '140', '145', '146', '168', '169', '171', '162', '175', '208', '212', '225', '228', '227', '231', '238', '242', '249', '255', '262', '264', '263', '266', '268', '259', '276', '311', '328']
 
 # with st.sidebar:
 #     for house in houses:
@@ -109,9 +110,9 @@ with tab1:
         else:
             df2 = df[-30*24:]
 
-
-        fig2 = hourly_consumption2(df2)
-        st.plotly_chart(fig2,use_container_width=True)
+        if house in enhanced_houses:
+            fig2 = hourly_consumption2(df2)
+            st.plotly_chart(fig2,use_container_width=True)
 
        
 
