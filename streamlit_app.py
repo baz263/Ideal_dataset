@@ -212,9 +212,6 @@ with tab3:
 
 
     with col3:
-        fig_all_power = power_hour_count(df_1h_all_2)
-        st.pyplot(fig_all_power)
-
         fig_all_day = day_consumption_outliersremoved(df_1h_all_2)
         st.pyplot(fig_all_day)
 
