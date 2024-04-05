@@ -86,58 +86,58 @@ else:
     df = df_getter(selected_house) 
 
 with tab1:
-    st.header('House breakdown')
+    with st.container:
+        st.header('House breakdown')
 
 
-    top_section= st.empty()
+        top_section= st.empty()
 
-    time_periods = ['Last 7 days','Last 30 days', 'Last 365 days', 'All']
+        time_periods = ['Last 7 days','Last 30 days', 'Last 365 days', 'All']
 
-    # Create the dropdown menu and get the selected time period
-    selected_time_period = st.selectbox('Select time period', time_periods)
+        # Create the dropdown menu and get the selected time period
+        selected_time_period = st.selectbox('Select time period', time_periods)
 
-    # Filter the DataFrame based on the selected time period
-    if selected_time_period == 'Last 7 days':
-        df2 = df[-7*24:]
-    elif selected_time_period == 'Last 30 days':
-        df2 = df[-30*24:]
-    elif selected_time_period == 'Last 365 days':
-        df2 = df[-7*24*365:]
-    elif selected_time_period == 'All':
-        df2 = df
-    else:
-        df2 = df[-30*24:]
-
-
-    fig2 = hourly_consumption2(df2)
-    st.plotly_chart(fig2,use_container_width=True)
-
-    col1, col2 = st.columns([3,2])
-
-    #lets try to make the area chart
-    electric_appliances = ['dehumidifier','dishwasher',  'fridgefreezer', 'freezer', 'fridge',  'kettle',
-                            'washingmachine', 'kettle', 'vacuumcleaner', 'microwave',  'shower', 'dehumidifier', 'vacuumcleaner', 'electric-combined']
-
-    electric_appliances = [val for val in electric_appliances if val in df2.columns]
-    df2 = df2.reset_index()
-    st.dataframe(df2)
-    st.area_chart(
-        df2, x='time', y=electric_appliances
-    )
-
-with col2:
-    fig1 = heatmap2(df)
-    fig1.update_layout(autosize = True)
-
-    st.plotly_chart(fig1,use_container_width =True)
+        # Filter the DataFrame based on the selected time period
+        if selected_time_period == 'Last 7 days':
+            df2 = df[-7*24:]
+        elif selected_time_period == 'Last 30 days':
+            df2 = df[-30*24:]
+        elif selected_time_period == 'Last 365 days':
+            df2 = df[-7*24*365:]
+        elif selected_time_period == 'All':
+            df2 = df
+        else:
+            df2 = df[-30*24:]
 
 
-with col1:
-    fig3 = power_hour_count(df)
-    st.pyplot(fig3)
+        fig2 = hourly_consumption2(df2)
+        st.plotly_chart(fig2,use_container_width=True)
 
-    fig4 = day_consumption_outliersremoved(df)
-    st.pyplot(fig4)
+        col1, col2 = st.columns([3,2])
+
+        #lets try to make the area chart
+        electric_appliances = ['dehumidifier','dishwasher',  'fridgefreezer', 'freezer', 'fridge',  'kettle',
+                                'washingmachine', 'kettle', 'vacuumcleaner', 'microwave',  'shower', 'dehumidifier', 'vacuumcleaner', 'electric-combined']
+
+        electric_appliances = [val for val in electric_appliances if val in df2.columns]
+        df2 = df2.reset_index()
+        st.area_chart(
+            df2, x='time', y=electric_appliances
+        )
+
+    with col2:
+        fig1 = heatmap2(df)
+        fig1.update_layout(autosize = True)
+
+        st.plotly_chart(fig1,use_container_width =True)
+
+
+    with col1:
+        fig3 = power_hour_count(df)
+        st.pyplot(fig3)
+
+        fig4 = day_consumption_outliersremoved(df)
+        st.pyplot(fig4)
 
 with tab2:
     st.write('boob')
