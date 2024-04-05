@@ -110,9 +110,9 @@ with tab1:
         else:
             df2 = df[-30*24:]
 
-        if selected_house in enhanced_houses:
-            fig2 = hourly_consumption2(df2)
-            st.plotly_chart(fig2,use_container_width=True)
+       
+        fig2 = hourly_consumption2(df2)
+        st.plotly_chart(fig2,use_container_width=True)
 
        
 
@@ -122,12 +122,14 @@ with tab1:
             'grill', 'toaster', 'microwave', 'shower', 'electricshower','washingmachine', 'tumbledrier', 'washingmachinetumbledrier',
             'dishwasher','kettle', 'dehumidifier', 'vacuumcleaner', 'other'
         ]
+        if selected_house in enhanced_houses:
+            electric_appliances = [val for val in electric_appliances if val in df2.columns]
+            df2 = df2.reset_index()
+            st.area_chart(
+                df2, x='time', y=electric_appliances
+            )
 
-        electric_appliances = [val for val in electric_appliances if val in df2.columns]
-        df2 = df2.reset_index()
-        st.area_chart(
-            df2, x='time', y=electric_appliances
-        )
+
     col1, col2 = st.columns([3,2])
 
     with col2:
