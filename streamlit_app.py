@@ -114,6 +114,9 @@ with tab1:
 
     col1, col2 = st.columns([3,2])
 
+    #lets try to make the area chart
+    st.write(f'{df2.columns}')
+
 with col2:
     fig1 = heatmap2(df)
     fig1.update_layout(autosize = True)
