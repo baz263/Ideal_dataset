@@ -60,7 +60,7 @@ def power_hour_count(df, homeid=None):
 
     # Set the title of the axes
     ax.set_title('Number of hours where electricity consumption falls within a given range', color='white')
-    ax.set_facecolor('black')
+    ax.set_facecolor('lightgray')
     ax.tick_params(axis= 'x', colors= 'white')
     ax.tick_params(axis= 'y', colors= 'white')
 
