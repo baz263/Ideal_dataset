@@ -183,16 +183,16 @@ with tab3:
         time_periods = ['Last 7 days','Last 30 days', 'Last 365 days', 'All']
 
         # Create the dropdown menu and get the selected time period
-        selected_time_period = st.selectbox('Select time period', time_periods)
+        selected_time_period_all = st.selectbox('Select time period', time_periods, key = 'all_houses')
 
         # Filter the DataFrame based on the selected time period
-        if selected_time_period == 'Last 7 days':
+        if selected_time_period_all == 'Last 7 days':
             df_1h_all_2 = df_1h_all[-7*24:]
-        elif selected_time_period == 'Last 30 days':
+        elif selected_time_period_all == 'Last 30 days':
             df_1h_all_2 = df_1h_all[-30*24:]
-        elif selected_time_period == 'Last 365 days':
+        elif selected_time_period_all == 'Last 365 days':
             df_1h_all_2 = df_1h_all[-7*24*365:]
-        elif selected_time_period == 'All':
+        elif selected_time_period_all == 'All':
             df_1h_all_2 = df_1h_all
         else:
             df_1h_all_2 = df_1h_all[-30*24:]
