@@ -115,7 +115,13 @@ with tab1:
     col1, col2 = st.columns([3,2])
 
     #lets try to make the area chart
-    st.write(f'{df2.columns}')
+    electric_appliances = ['dehumidifier','dishwasher',  'fridgefreezer', 'freezer', 'fridge',  'kettle',
+                            'washingmachine', 'kettle', 'vacuumcleaner', 'microwave',  'shower', 'dehumidifier', 'vacuumcleaner', 'electric-combined']
+
+    electric_appliances = [val for val in electric_appliances if val in df2.columns]
+    st.area_chart(
+        df2, x=df2.index, y=electric_appliances
+    )
 
 with col2:
     fig1 = heatmap2(df)
