@@ -119,8 +119,9 @@ with tab1:
                             'washingmachine', 'kettle', 'vacuumcleaner', 'microwave',  'shower', 'dehumidifier', 'vacuumcleaner', 'electric-combined']
 
     electric_appliances = [val for val in electric_appliances if val in df2.columns]
+    df2 = df2.reset_index(drop=True)
     st.area_chart(
-        df2, x=df2.index, y=electric_appliances
+        df2, x='time', y=electric_appliances
     )
 
 with col2:
