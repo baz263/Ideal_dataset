@@ -86,7 +86,7 @@ else:
     df = df_getter(selected_house) 
 
 with tab1:
-    with st.container:
+    with st.container():
         st.header('House breakdown')
 
 
@@ -113,7 +113,7 @@ with tab1:
         fig2 = hourly_consumption2(df2)
         st.plotly_chart(fig2,use_container_width=True)
 
-        col1, col2 = st.columns([3,2])
+       
 
         #lets try to make the area chart
         electric_appliances = ['dehumidifier','dishwasher',  'fridgefreezer', 'freezer', 'fridge',  'kettle',
@@ -124,6 +124,7 @@ with tab1:
         st.area_chart(
             df2, x='time', y=electric_appliances
         )
+    col1, col2 = st.columns([3,2])
 
     with col2:
         fig1 = heatmap2(df)
