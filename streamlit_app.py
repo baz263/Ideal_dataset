@@ -198,8 +198,8 @@ with tab3:
             df_1h_all_2 = df_1h_all[-30*24:]
 
        
-        fig2 = hourly_consumption2(df_1h_all_2)
-        st.plotly_chart(fig2,use_container_width=True)
+        fig_hourly_consumption_all = hourly_consumption2(df_1h_all_2)
+        st.plotly_chart(fig_hourly_consumption_all,use_container_width=True)
 
 
     col3, col4 = st.columns([3,2])
