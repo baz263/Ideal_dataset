@@ -59,8 +59,9 @@ def power_hour_count(df, homeid=None):
     sns.barplot(x='Count', y='Range', data=df_counts, ax=ax, palette= 'flare')
 
     # Set the title of the axes
-    ax.set_title('Number of hours where electricity consumption falls within a given range')
+    ax.set_title('Number of hours where electricity consumption falls within a given range', color='white')
     ax.set_facecolor('black')
+    
 
     for i in range(df_counts.shape[0]):
         ax.text(df_counts.Count[i], i, df_counts.Count[i], va='center')
