@@ -46,7 +46,7 @@ houses = ['hourly_61', 'hourly_62']
 
         
 houses = ['61', '62', '63', '65', '73', '90', '96', '106', '105', '136', '128', '139', '140', '145', '146', '168', '169', '171', '162', '175', '208', '212', '225', '228', '227', '231', '238', '242', '249', '255', '262', '264', '263', '266', '268', '259', '276', '311', '328']
-enhanced_houses =['61', '63', '65', '73', '90', '96', '106', '105', '136', '128', '139', '140', '145', '146', '168', '169', '171', '162', '175', '208', '212', '225', '228', '227', '231', '238', '242', '249', '255', '262', '264', '263', '266', '268', '259', '276', '311', '328']
+enhanced_houses =['61', '62', '63', '65', '73', '90', '96', '106', '105', '136', '128', '139', '140', '145', '146', '168', '169', '171', '162', '175', '208', '212', '225', '228', '227', '231', '238', '242', '249', '255', '262', '264', '263', '266', '268', '259', '276', '311', '328']
 
 # with st.sidebar:
 #     for house in houses:
@@ -120,7 +120,7 @@ with tab1:
         electric_appliances = [
             'gasfire', 'electricheater', 'fridge', 'freezer', 'fridgefreezer', 'gashob', 'electrichob', 'gasoven', 'electricoven',
             'grill', 'toaster', 'microwave', 'shower', 'electricshower','washingmachine', 'tumbledrier', 'washingmachinetumbledrier',
-            'dishwasher','kettle', 'dehumidifier', 'vacuumcleaner', 'other'
+            'dishwasher','kettle', 'dehumidifier', 'vacuumcleaner', 'other', 'electric-combined'
         ]
         if selected_house in enhanced_houses:
             electric_appliances = [val for val in electric_appliances if val in df2.columns]
