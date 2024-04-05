@@ -54,6 +54,7 @@ def power_hour_count(df, homeid=None):
     # # Show the plot
     # return fig
     fig, ax = plt.subplots()
+    fig.set_facecolor('black')
     # Create the barplot on the axes
     sns.barplot(x='Count', y='Range', data=df_counts, ax=ax, palette= 'flare')
 
