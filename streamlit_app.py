@@ -34,8 +34,32 @@ def df_getter(homeid):
 
     return df
 
+def df_getter_all():
+    session = boto3.Session(
+        aws_access_key_id = st.secrets['AWS']['AWS_ACCESS_KEY_ID'],
+        aws_secret_access_key = st.secrets['AWS']['AWS_SECRET_ACCESS_KEY'])
 
-tab1, tab2, tab3 = st.tabs(["House Breakdown", "Forecasting", 'Dataframe'])
+
+    # Create an S3 resource object using the session
+    s3 = session.resource('s3')
+
+    obj = s3.Object('electric1hcsvs', f'combined_1h/combined_houses_1H')
+    response = obj.get()
+
+    # The object's data is in the 'Body' field of the response
+    data = response['Body'].read().decode('utf-8')
+
+    # Use pandas to read the CSV data into a DataFrame
+    df = pd.read_csv(StringIO(data))
+    df.time = pd.to_datetime(df['time'])
+    df.set_index('time', inplace=True)
+
+    return df
+
+df_1h_all = df_getter_all()
+
+
+tab1, tab2, tab3, tab4 = st.tabs(["House Breakdown", "Forecasting", 'Dataframe'])
 
 houses = ['hourly_61', 'hourly_62']
 
@@ -150,6 +174,52 @@ with tab2:
     st.write('boob')
 
 with tab3:
+    with st.container():
+        st.header('House breakdown')
+
+
+        top_section= st.empty()
+
+        time_periods = ['Last 7 days','Last 30 days', 'Last 365 days', 'All']
+
+        # Create the dropdown menu and get the selected time period
+        selected_time_period = st.selectbox('Select time period', time_periods)
+
+        # Filter the DataFrame based on the selected time period
+        if selected_time_period == 'Last 7 days':
+            df_1h_all_2 = df_1h_all[-7*24:]
+        elif selected_time_period == 'Last 30 days':
+            df_1h_all_2 = df_1h_all[-30*24:]
+        elif selected_time_period == 'Last 365 days':
+            df_1h_all_2 = df_1h_all[-7*24*365:]
+        elif selected_time_period == 'All':
+            df_1h_all_2 = df_1h_all
+        else:
+            df_1h_all_2 = df_1h_all[-30*24:]
+
+       
+        fig2 = hourly_consumption2(df_1h_all_2)
+        st.plotly_chart(fig2,use_container_width=True)
+
+
+    col3, col4 = st.columns([3,2])
+
+    with col4:
+        fig_all_heat = heatmap2(df_1h_all_2)
+        fig_all_heat.update_layout(autosize = True)
+
+        st.plotly_chart(fig_all_heat,use_container_width =True)
+
+
+    with col3:
+        fig_all_power = power_hour_count(df_1h_all_2)
+        st.pyplot(fig_all_power)
+
+        fig_all_day = day_consumption_outliersremoved(df_1h_all_2)
+        st.pyplot(fig_all_day)
+
+
+with tab4:
     st.header('Dataframe_1W')
     st.dataframe(data=df.tail(148))
 
