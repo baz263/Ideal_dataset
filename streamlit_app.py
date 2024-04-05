@@ -120,9 +120,10 @@ with tab1:
 
     electric_appliances = [val for val in electric_appliances if val in df2.columns]
     df2 = df2.reset_index(drop=True)
-    st.area_chart(
-        df2, x='time', y=electric_appliances
-    )
+    st.dataframe(df2)
+    # st.area_chart(
+    #     df2, x='time', y=electric_appliances
+    # )
 
 with col2:
     fig1 = heatmap2(df)
