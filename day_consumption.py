@@ -10,7 +10,7 @@ def day_consumption_outliersremoved(df):
     Q3 = df.quantile(0.75)
     IQR = Q3 - Q1
     #df = df[(df > (Q1 - 1.5 * IQR)) & (df < (Q3 + 1.5 * IQR))]
-    sns.boxplot(data = df, x = df.time.dt.day_name(), y = 'electric-combined', ax=ax, order = order, palette = 'flare' )
+    sns.boxplot(data = df, x = df.time.dt.day_name(), y = 'electric-combined', ax=ax, order = order, palette = 'rocket' )
     ax.set_title('Daily hour consumption - averaged', color='white')
 
     fig.set_facecolor('black')
