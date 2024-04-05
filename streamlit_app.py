@@ -164,10 +164,10 @@ with tab1:
 
 
     with col1:
-        fig3 = power_hour_count(df2)
+        fig3 = power_hour_count(df)
         st.pyplot(fig3)
 
-        fig4 = day_consumption_outliersremoved(df2)
+        fig4 = day_consumption_outliersremoved(df)
         st.pyplot(fig4)
 
 with tab2:
