@@ -59,7 +59,7 @@ def df_getter_all():
 df_1h_all = df_getter_all()
 
 
-tab1, tab2, tab3, tab4 = st.tabs(["House Breakdown", "Forecasting", 'Dataframe'])
+tab1, tab2, tab3, tab4 = st.tabs(["House Breakdown", "Forecasting", 'Coummunity','Dataframe'])
 
 houses = ['hourly_61', 'hourly_62']
 
