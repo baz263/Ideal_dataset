@@ -175,7 +175,7 @@ with tab2:
 
 with tab3:
     with st.container():
-        st.header('House breakdown')
+        st.header('Community breakdown')
 
 
         top_section= st.empty()
