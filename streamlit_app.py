@@ -116,8 +116,11 @@ with tab1:
        
 
         #lets try to make the area chart
-        electric_appliances = ['dehumidifier','dishwasher',  'fridgefreezer', 'freezer', 'fridge',  'kettle',
-                                'washingmachine', 'kettle', 'vacuumcleaner', 'microwave',  'shower', 'dehumidifier', 'vacuumcleaner', 'electric-combined']
+        electric_appliances = [
+            'gasfire', 'electricheater', 'fridge', 'freezer', 'fridgefreezer', 'gashob', 'electrichob', 'gasoven', 'electricoven',
+            'grill', 'toaster', 'microwave', 'shower', 'electricshower','washingmachine', 'tumbledrier', 'washingmachinetumbledrier',
+            'dishwasher','kettle', 'dehumidifier', 'vacuumcleaner', 'other'
+        ]
 
         electric_appliances = [val for val in electric_appliances if val in df2.columns]
         df2 = df2.reset_index()
@@ -142,6 +145,10 @@ with tab1:
 
 with tab2:
     st.write('boob')
+
+with tab3:
+    st.header('Dataframe_1W')
+    st.dataframe(data=df.tail(148))
 
 
 
