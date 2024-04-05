@@ -55,7 +55,7 @@ def power_hour_count(df, homeid=None):
     # return fig
     fig, ax = plt.subplots()
     # Create the barplot on the axes
-    sns.barplot(x='Count', y='Range', data=df_counts, ax=ax)
+    sns.barplot(x='Count', y='Range', data=df_counts, ax=ax, palette= 'flare')
 
     # Set the title of the axes
     ax.set_title('Number of hours where electricity consumption falls within a given range')
