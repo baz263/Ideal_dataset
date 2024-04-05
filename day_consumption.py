@@ -14,7 +14,7 @@ def day_consumption_outliersremoved(df):
     ax.set_title('Daily hour consumption - averaged', color='white')
 
     fig.set_facecolor('black')
-    ax.set_facecolor('light grey')
+    ax.set_facecolor('lightgray')
     ax.tick_params(axis= 'x', colors= 'white')
     ax.tick_params(axis= 'y', colors= 'white')
     return fig
