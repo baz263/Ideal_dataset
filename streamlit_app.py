@@ -110,7 +110,7 @@ with tab1:
         else:
             df2 = df[-30*24:]
 
-        if house in enhanced_houses:
+        if selected_house in enhanced_houses:
             fig2 = hourly_consumption2(df2)
             st.plotly_chart(fig2,use_container_width=True)
 
