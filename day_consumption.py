@@ -3,7 +3,7 @@ import seaborn as sns
 
 def day_consumption_outliersremoved(df):
     order = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday','Saturday', 'Sunday']
-    fig, ax = plt.subplots()
+    fig, ax = plt.subplots(figsize = (9,6))
 
     df = df['electric-combined'].copy().reset_index()
     Q1 = df.quantile(0.25)

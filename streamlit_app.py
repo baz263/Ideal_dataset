@@ -123,11 +123,9 @@ with tab1:
 
     with col1:
         fig3 = power_hour_count(df)
-        fig3.update_layout(size=400)
         st.pyplot(fig3)
 
         fig4 = day_consumption_outliersremoved(df)
-        fig3.update_layout(size=400)
         st.pyplot(fig4)
 
 with tab2:
