@@ -35,7 +35,7 @@ def df_getter(homeid):
     return df
 
 
-tab1, tab2 = st.tabs(["House Breakdown", "Forecasting"])
+tab1, tab2, tab3 = st.tabs(["House Breakdown", "Forecasting", 'Datframe'])
 
 houses = ['hourly_61', 'hourly_62']
 
