@@ -157,17 +157,17 @@ with tab1:
     col1, col2 = st.columns([3,2])
 
     with col2:
-        fig1 = heatmap2(df)
+        fig1 = heatmap2(df2)
         fig1.update_layout(autosize = True)
 
         st.plotly_chart(fig1,use_container_width =True)
 
 
     with col1:
-        fig3 = power_hour_count(df)
+        fig3 = power_hour_count(df2)
         st.pyplot(fig3)
 
-        fig4 = day_consumption_outliersremoved(df)
+        fig4 = day_consumption_outliersremoved(df2)
         st.pyplot(fig4)
 
 with tab2:
