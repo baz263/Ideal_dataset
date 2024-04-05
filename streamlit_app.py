@@ -187,11 +187,11 @@ with tab3:
 
         # Filter the DataFrame based on the selected time period
         if selected_time_period_all == 'Last 7 days':
-            df_1h_all_2 = df_1h_all[-7*24:]
+            df_1h_all_2 = df_1h_all[-24*7:]
         elif selected_time_period_all == 'Last 30 days':
-            df_1h_all_2 = df_1h_all[-30*24:]
+            df_1h_all_2 = df_1h_all[-24*30:]
         elif selected_time_period_all == 'Last 365 days':
-            df_1h_all_2 = df_1h_all[-7*24*365:]
+            df_1h_all_2 = df_1h_all[-24*365:]
         elif selected_time_period_all == 'All':
             df_1h_all_2 = df_1h_all
         else:
