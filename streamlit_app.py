@@ -8,6 +8,7 @@ from power_hour_count import power_hour_count
 from day_consumption import day_consumption_outliersremoved
 import pickle
 from io import BytesIO
+from joblib import load
 
 
 st.set_page_config(layout="wide")
@@ -64,11 +65,14 @@ def model_maker():
     aws_access_key_id = st.secrets['AWS']['AWS_ACCESS_KEY_ID'],
     aws_secret_access_key = st.secrets['AWS']['AWS_SECRET_ACCESS_KEY'])
     # Create an S3 resource object using the session
+    # s3 = session.resource('s3')
+    # fbprophet_model = s3.Object('electric1hcsvs', 'models/model.pkl').get()
+    # bytestream = BytesIO(fbprophet_model['Body'].read())
+    # m = pickle.load(bytestream)
     s3 = session.resource('s3')
     fbprophet_model = s3.Object('electric1hcsvs', 'models/model.pkl').get()
     bytestream = BytesIO(fbprophet_model['Body'].read())
-    m = pickle.load(bytestream)
-    #m = pd.read_pickle(bytestream)
+    m = load(bytestream)
     future = m.make_future_dataframe(periods=24, freq='H')
     st.write(future)
     return future
