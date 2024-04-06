@@ -199,7 +199,11 @@ with tab2:
     fbprophet_dataframe = model_maker()
     #st.write(fbprophet_dataframe)
     #st.dataframe(fbprophet_dataframe)
-    merged_df = pd.merge(df_1h_all, fbprophet_dataframe, how='outer',on='ds')
+    #merged_df = pd.merge(df_1h_all, fbprophet_dataframe, how='outer',on='ds')
+    merged_df = fbprophet_dataframe.merge(df_1h_all, on = 'ds')
+
+        #forecast_merge_actual = forecast_pred.merge(df_electric_test, on = 'ds')
+
     st.write(merged_df)
     #st.dataframe(merged_df)
     fig_fbprophet = fbprophet_plot(merged_df)
