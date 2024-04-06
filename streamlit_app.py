@@ -201,12 +201,9 @@ with tab2:
     st.write(df_1h_all)
 
     fbprophet_dataframe= fbprophet_dataframe.rename(columns = {'ds':'time'})
-    st.write(f'df_1h_all.columns: {df_1h_all.columns}')
-    #df_1h_all['time'] = pd.to_datetime(df_1h_all['time'])
-    st.write('__')
-    st.write(fbprophet_dataframe)
-    st.write('__')
-    fbprophet_dataframe['time'] = pd.to_datetime(fbprophet_dataframe['time'])
+    fbprophet_dataframe.index = fbprophet_dataframe['time']
+    merged_df = fbprophet_dataframe.join(df_1h_all, how='left', lsuffix='_fb', rsuffix='_1h')
+    
 
     merged_df = fbprophet_dataframe.merge(df_1h_all, on = 'time', how='left')
 
