@@ -201,14 +201,14 @@ with tab2:
     
     st.write(df_1h_all2)
 
-    fbprophet_dataframe= fbprophet_dataframe.rename(columns = {'ds':'time'})
+    #fbprophet_dataframe= fbprophet_dataframe.rename(columns = {'ds':'time'})
     merged_df = fbprophet_dataframe.join(df_1h_all2, how='left')
     #merged_df = fbprophet_dataframe.merge(df_1h_all, on = 'time')
     
 
     #merged_df = fbprophet_dataframe.merge(df_1h_all, on = 'time', how='left')
 
-        #forecast_merge_actual = forecast_pred.merge(df_electric_test, on = 'ds')
+    #forecast_merge_actual = forecast_pred.merge(df_electric_test, on = 'ds')
 
     merged_df = merged_df[-(24*31):]
     st.write(merged_df)
