@@ -200,6 +200,7 @@ with tab2:
     #st.write(fbprophet_dataframe)
     #st.dataframe(fbprophet_dataframe)
     #merged_df = pd.merge(df_1h_all, fbprophet_dataframe, how='outer',on='ds')
+    st.write(df_1h_all)
 
     fbprophet_dataframe= fbprophet_dataframe.rename(columns = {'ds':'time'})
 
