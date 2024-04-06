@@ -197,9 +197,10 @@ with tab1:
 
 with tab2:
     fbprophet_dataframe = model_maker()
-    st.write(fbprophet_dataframe)
+    #st.write(fbprophet_dataframe)
     #st.dataframe(fbprophet_dataframe)
     merged_df = pd.merge(df_1h_all, fbprophet_dataframe, how='outer', left_index=True, right_on='ds')
+    st.write(merged_df)
     #st.dataframe(merged_df)
     fig_fbprophet = fbprophet_plot(merged_df)
     st.plotly_chart(fig_fbprophet, use_container_width=True)
