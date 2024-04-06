@@ -108,6 +108,7 @@ for house in houses:
 
 with st.sidebar:
     st.write('House choices:')
+    st.write(f'{pd.__version__}')
     for house in houses:
         # Create a checkbox for each house and link it to the session state
         was_checked = session_state[house]
