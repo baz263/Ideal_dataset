@@ -45,3 +45,5 @@ def plotly_plt(df):
     #fig.add_trace(go.Scatter(x=df.ds, y=df['yhat_upper'], fill='tonexty', mode='lines', line_color='rgba(255,0,0,0.2)', name='yhat_upper'))
     fig.add_trace(go.Scatter(x=df.ds, y=df['electric-combined'], mode='lines', name='electric-combined'))
     return fig
+
+print(len(model_maker()))

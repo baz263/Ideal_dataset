@@ -197,6 +197,7 @@ with tab1:
 
 with tab2:
     fbprophet_dataframe = model_maker()
+    st.write(len(fbprophet_dataframe))
     fbprophet_dataframe.index = fbprophet_dataframe['ds']
     fbprophet_dataframe = fbprophet_dataframe.drop(columns = ['ds'])
     
