@@ -201,6 +201,7 @@ with tab2:
     st.write(df_1h_all)
 
     fbprophet_dataframe= fbprophet_dataframe.rename(columns = {'ds':'time'})
+    st.write(f'df_1h_all.columns: {df_1h_all.columns}')
     #df_1h_all['time'] = pd.to_datetime(df_1h_all['time'])
     st.write('__')
     st.write(fbprophet_dataframe)
