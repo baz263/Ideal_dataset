@@ -65,7 +65,7 @@ def model_maker():
     aws_secret_access_key = st.secrets['AWS']['AWS_SECRET_ACCESS_KEY'])
     # Create an S3 resource object using the session
     s3 = session.resource('s3')
-    fbprophet_model = s3.Object('electric1hcsvs', 'models/model.pkl' )
+    fbprophet_model = s3.Object('electric1hcsvs', 'models/model.pkl').get()
     bytestream = BytesIO(fbprophet_model['Body'].read())
     m = pickle.load(bytestream)
     future = m.make_future_dataframe(periods=24, freq='H')
