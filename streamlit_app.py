@@ -69,6 +69,7 @@ def model_maker():
     bytestream = BytesIO(fbprophet_model['Body'].read())
     m = pickle.load(bytestream)
     future = m.make_future_dataframe(periods=24, freq='H')
+    st.write(future)
     return future
 
 df_1h_all = df_getter_all()
