@@ -197,13 +197,9 @@ with tab1:
 
 with tab2:
     fbprophet_dataframe = model_maker()
-    st.write(len(fbprophet_dataframe))
     fbprophet_dataframe.index = fbprophet_dataframe['ds']
     fbprophet_dataframe = fbprophet_dataframe.drop(columns = ['ds'])
-    
-    st.write(df_1h_all)
-    st.write('fbprophet_dataframe')
-    st.write(fbprophet_dataframe)
+
 
     #fbprophet_dataframe= fbprophet_dataframe.rename(columns = {'ds':'time'})
     merged_df = fbprophet_dataframe.join(df_1h_all, how='left')
@@ -214,8 +210,7 @@ with tab2:
     #merged_df = fbprophet_dataframe.merge(df_1h_all, on = 'time', how='left')
 
     #forecast_merge_actual = forecast_pred.merge(df_electric_test, on = 'ds')
-    st.write(merged_df)
-    st.write(merged_df.index)
+
     merged_df = merged_df[-(24*31):]
     fig_fbprophet = fbprophet_plot(merged_df)
     st.plotly_chart(fig_fbprophet, use_container_width=True)
