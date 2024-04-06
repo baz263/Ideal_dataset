@@ -203,6 +203,8 @@ with tab2:
     st.write(df_1h_all)
 
     fbprophet_dataframe= fbprophet_dataframe.rename(columns = {'ds':'time'})
+    df_1h_all['time'] = pd.to_datetime(df_1h_all['time'])
+    fbprophet_dataframe['time'] = pd.to_datetime(fbprophet_dataframe['time'])
 
     merged_df = fbprophet_dataframe.merge(df_1h_all, on = 'time', how='left')
 
