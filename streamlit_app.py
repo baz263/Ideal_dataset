@@ -46,7 +46,7 @@ def df_getter_all():
     # Create an S3 resource object using the session
     s3 = session.resource('s3')
 
-    obj = s3.Object('electric1hcsvs', f'combined_1h/combined_houses_1H')
+    obj = s3.Object('electric1hcsvs', f'combined_1h/6_months_data.csv')
     response = obj.get()
 
     # The object's data is in the 'Body' field of the response
@@ -192,7 +192,6 @@ with tab1:
         st.pyplot(fig4)
 
 with tab2:
-    st.write('boob')
     fbprophet_dataframe = model_maker()
     st.dataframe(fbprophet_dataframe)
 
