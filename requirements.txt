@@ -1,6 +1,6 @@
 streamlit
 boto3
-pandas == 2.0.3
+pandas
 plotly
 matplotlib
 seaborn
