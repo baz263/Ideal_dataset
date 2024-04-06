@@ -202,10 +202,10 @@ with tab2:
 
     fbprophet_dataframe= fbprophet_dataframe.rename(columns = {'ds':'time'})
     fbprophet_dataframe.index = fbprophet_dataframe['time']
-    merged_df = fbprophet_dataframe.join(df_1h_all, how='left', lsuffix='_fb', rsuffix='_1h')
+    merged_df = fbprophet_dataframe.join(df_1h_all, how='left')
     
 
-    merged_df = fbprophet_dataframe.merge(df_1h_all, on = 'time', how='left')
+    #merged_df = fbprophet_dataframe.merge(df_1h_all, on = 'time', how='left')
 
         #forecast_merge_actual = forecast_pred.merge(df_electric_test, on = 'ds')
 
