@@ -82,7 +82,7 @@ def model_maker():
     return forecast
 
 df_1h_all = df_getter_all()
-df_1h_all.time = df_1h_all.time.dt.round('H')
+df_1h_all = df_1h_all.reset_index()
 
 
 tab1, tab2, tab3, tab4 = st.tabs(["House Breakdown", "Forecasting", 'Coummunity','Dataframe'])
