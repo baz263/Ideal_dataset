@@ -196,8 +196,10 @@ with tab1:
 
 with tab2:
     fbprophet_dataframe = model_maker()
-    st.dataframe(fbprophet_dataframe)
-
+    #st.dataframe(fbprophet_dataframe)
+    merged_df = pd.merge(df_1h_all, fbprophet_dataframe, how='outer', left_index=True, right_on='ds')
+    st.dataframe(merged_df)
+    
 with tab3:
     with st.container():
         st.header('Community breakdown')
