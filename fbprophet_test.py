@@ -31,7 +31,7 @@ def model_maker():
     fbprophet_model = s3.Object('electric1hcsvs', 'models/model.pkl').get()
     bytestream = BytesIO(fbprophet_model['Body'].read())
     m = pickle.load(bytestream)
-    future = m.make_future_dataframe(periods=24, freq='H')
+    future = m.make_future_dataframe(periods=72, freq='H')
     print(future)
     return future
 
