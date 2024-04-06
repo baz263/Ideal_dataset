@@ -6,6 +6,7 @@ from heatmap import heatmap2
 from hourly_consumption import hourly_consumption2
 from power_hour_count import power_hour_count
 from day_consumption import day_consumption_outliersremoved
+from fbprophet_plot import fbprophet_plot
 import pickle
 from io import BytesIO
 from joblib import load
@@ -199,7 +200,10 @@ with tab2:
     #st.dataframe(fbprophet_dataframe)
     merged_df = pd.merge(df_1h_all, fbprophet_dataframe, how='outer', left_index=True, right_on='ds')
     st.dataframe(merged_df)
-    
+    fig_fbprophet = fbprophet_plot(merged_df)
+    st.plotly_chart(fig_fbprophet, use_container_width=True)
+
+
 with tab3:
     with st.container():
         st.header('Community breakdown')
