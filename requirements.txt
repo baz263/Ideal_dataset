@@ -5,3 +5,4 @@ plotly
 matplotlib
 seaborn
 prophet
+cmdstanpy==1.1.0
