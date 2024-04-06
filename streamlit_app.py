@@ -74,6 +74,8 @@ def model_maker():
     bytestream = BytesIO(fbprophet_model['Body'].read())
     m = load(bytestream)
     future = m.make_future_dataframe(periods=24, freq='H')
+    forecast = m.predict(future)
+    st.write(forecast)
     st.write(future)
     return future
 
