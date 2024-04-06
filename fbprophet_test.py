@@ -35,7 +35,6 @@ def model_maker():
     print(future)
     return future
 
-model_maker()
 
 
 def plotly_plt(df):
@@ -46,4 +45,11 @@ def plotly_plt(df):
     fig.add_trace(go.Scatter(x=df.ds, y=df['electric-combined'], mode='lines', name='electric-combined'))
     return fig
 
-print(len(model_maker()))
+df = model_maker()
+
+# Calculate the difference between consecutive entries
+df['time_diff'] = df['ds'].diff()
+
+# Check if there are any differences that are not equal to 1 hour
+gaps = df[df['time_diff'] != pd.Timedelta(hours=1)]
+print(len(gaps))

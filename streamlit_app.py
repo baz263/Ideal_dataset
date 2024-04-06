@@ -206,7 +206,7 @@ with tab2:
     st.write(fbprophet_dataframe)
 
     #fbprophet_dataframe= fbprophet_dataframe.rename(columns = {'ds':'time'})
-    merged_df = fbprophet_dataframe.join(df_1h_all, how='right')
+    merged_df = fbprophet_dataframe.join(df_1h_all, how='left')
 
     #merged_df = fbprophet_dataframe.merge(df_1h_all, on = 'time')
     
