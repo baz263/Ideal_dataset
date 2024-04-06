@@ -4,5 +4,6 @@ pandas==2.0.3
 plotly
 matplotlib
 seaborn
-prophet
+prophet==1.1.4
 joblib
+cmdstanpy==1.1.0
