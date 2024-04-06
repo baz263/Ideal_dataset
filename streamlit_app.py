@@ -202,13 +202,12 @@ with tab2:
     #merged_df = pd.merge(df_1h_all, fbprophet_dataframe, how='outer',on='ds')
 
     fbprophet_dataframe= fbprophet_dataframe.rename(columns = {'ds':'time'})
-    st.write(fbprophet_dataframe)
-    st.write(df_1h_all)
+
     merged_df = fbprophet_dataframe.merge(df_1h_all, on = 'time', how='left')
 
         #forecast_merge_actual = forecast_pred.merge(df_electric_test, on = 'ds')
 
-    st.write(merged_df)
+    merged_df = merged_df[-(24*31):]
     #st.dataframe(merged_df)
     fig_fbprophet = fbprophet_plot(merged_df)
     st.plotly_chart(fig_fbprophet, use_container_width=True)
