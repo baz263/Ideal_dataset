@@ -197,13 +197,11 @@ with tab1:
 
 with tab2:
     fbprophet_dataframe = model_maker()
-    #st.write(fbprophet_dataframe)
-    #st.dataframe(fbprophet_dataframe)
-    #merged_df = pd.merge(df_1h_all, fbprophet_dataframe, how='outer',on='ds')
+    
     st.write(df_1h_all)
 
     fbprophet_dataframe= fbprophet_dataframe.rename(columns = {'ds':'time'})
-    df_1h_all['time'] = pd.to_datetime(df_1h_all['time'])
+    #df_1h_all['time'] = pd.to_datetime(df_1h_all['time'])
     st.write('__')
     st.write(fbprophet_dataframe)
     st.write('__')
