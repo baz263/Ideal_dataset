@@ -200,10 +200,11 @@ with tab2:
     #st.write(fbprophet_dataframe)
     #st.dataframe(fbprophet_dataframe)
     #merged_df = pd.merge(df_1h_all, fbprophet_dataframe, how='outer',on='ds')
+
+    fbprophet_dataframe= fbprophet_dataframe.rename(columns = {'ds':'time'})
     st.write(fbprophet_dataframe)
     st.write(df_1h_all)
-    fbprophet_dataframe= fbprophet_dataframe.rename(columns = {'ds':'time'})
-    merged_df = fbprophet_dataframe.merge(df_1h_all, on = 'ds')
+    merged_df = fbprophet_dataframe.merge(df_1h_all, on = 'time')
 
         #forecast_merge_actual = forecast_pred.merge(df_electric_test, on = 'ds')
 
