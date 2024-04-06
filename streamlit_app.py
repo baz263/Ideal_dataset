@@ -67,8 +67,8 @@ def model_maker():
     s3 = session.resource('s3')
     fbprophet_model = s3.Object('electric1hcsvs', 'models/model.pkl').get()
     bytestream = BytesIO(fbprophet_model['Body'].read())
-    #m = pickle.load(bytestream)
-    m = pd.read_pickle(bytestream)
+    m = pickle.load(bytestream)
+    #m = pd.read_pickle(bytestream)
     future = m.make_future_dataframe(periods=24, freq='H')
     st.write(future)
     return future
@@ -108,7 +108,6 @@ for house in houses:
 
 with st.sidebar:
     st.write('House choices:')
-    st.write(f'{pd.__version__}')
     for house in houses:
         # Create a checkbox for each house and link it to the session state
         was_checked = session_state[house]
