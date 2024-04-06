@@ -202,6 +202,8 @@ with tab2:
 
     fbprophet_dataframe= fbprophet_dataframe.rename(columns = {'ds':'time'})
     fbprophet_dataframe.index = fbprophet_dataframe['time']
+    fbprophet_dataframe.index = pd.to_datetime(fbprophet_dataframe.index)
+    df_1h_all.index = pd.to_datetime(df_1h_all.index)
     merged_df = fbprophet_dataframe.join(df_1h_all, how='left')
     
 
