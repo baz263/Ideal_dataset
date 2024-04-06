@@ -216,8 +216,8 @@ with tab2:
     #forecast_merge_actual = forecast_pred.merge(df_electric_test, on = 'ds')
     st.write(merged_df)
     merged_df = merged_df[-(24*31):]
-    #fig_fbprophet = fbprophet_plot(merged_df)
-    #st.plotly_chart(fig_fbprophet, use_container_width=True)
+    fig_fbprophet = fbprophet_plot(merged_df)
+    st.plotly_chart(fig_fbprophet, use_container_width=True)
 
 
 with tab3:
