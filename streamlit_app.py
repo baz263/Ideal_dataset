@@ -66,7 +66,7 @@ def model_maker():
     # Create an S3 resource object using the session
     s3 = session.resource('s3')
     fbprophet_model = s3.Object('electric1hcsvs', 'models/model.pkl' )
-    bytestream = BytesIO(obj['Body'].read())
+    bytestream = BytesIO(fbprophet_model['Body'].read())
     m = pickle.load(bytestream)
     future = m.make_future_dataframe(periods=24, freq='H')
     return future
