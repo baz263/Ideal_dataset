@@ -78,8 +78,8 @@ def model_maker():
     forecast = m.predict(future)
     forecast = forecast[['ds', 'yhat']]
     #st.write(forecast)
-    st.write(future)
-    return future
+    #st.write(future)
+    return forecast
 
 df_1h_all = df_getter_all()
 
