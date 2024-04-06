@@ -197,11 +197,12 @@ with tab1:
 
 with tab2:
     fbprophet_dataframe = model_maker()
+    df_1h_all2 = df_1h_all.reset_index()
     
-    st.write(df_1h_all)
+    st.write(df_1h_all2)
 
     fbprophet_dataframe= fbprophet_dataframe.rename(columns = {'ds':'time'})
-    merged_df = fbprophet_dataframe.join(df_1h_all, how='left')
+    merged_df = fbprophet_dataframe.join(df_1h_all2, how='left')
     #merged_df = fbprophet_dataframe.merge(df_1h_all, on = 'time')
     
 
