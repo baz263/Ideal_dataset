@@ -77,7 +77,7 @@ def model_maker():
     future = m.make_future_dataframe(periods=24, freq='H')
     forecast = m.predict(future)
     forecast = forecast[['ds', 'yhat']]
-    st.write(forecast)
+    #st.write(forecast)
     st.write(future)
     return future
 
