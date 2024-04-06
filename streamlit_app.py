@@ -6,6 +6,8 @@ from heatmap import heatmap2
 from hourly_consumption import hourly_consumption2
 from power_hour_count import power_hour_count
 from day_consumption import day_consumption_outliersremoved
+import pickle
+from io import BytesIO
 
 
 st.set_page_config(layout="wide")
@@ -55,6 +57,19 @@ def df_getter_all():
     df.set_index('time', inplace=True)
 
     return df
+
+def model_maker():
+    #area under work
+    session = boto3.Session(
+    aws_access_key_id = st.secrets['AWS']['AWS_ACCESS_KEY_ID'],
+    aws_secret_access_key = st.secrets['AWS']['AWS_SECRET_ACCESS_KEY'])
+    # Create an S3 resource object using the session
+    s3 = session.resource('s3')
+    fbprophet_model = s3.Object('electric1hcsvs', 'models/model.pkl' )
+    bytestream = BytesIO(obj['Body'].read())
+    m = pickle.load(bytestream)
+    future = m.make_future_dataframe(periods=24, freq='H')
+    return future
 
 df_1h_all = df_getter_all()
 
@@ -172,6 +187,8 @@ with tab1:
 
 with tab2:
     st.write('boob')
+    fbprophet_dataframe = model_maker()
+    st.dataframe(fbprophet_dataframe)
 
 with tab3:
     with st.container():
