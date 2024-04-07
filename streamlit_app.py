@@ -110,7 +110,8 @@ predictions = model_linear_1h.predict(df_topredict)
 
 
 
-#predictiondf= pd.DataFrame(model_linear_1h.predict(df_topredict) ,index = next_hour, columns=['electric-combined-next-hour'])
+predictiondf= pd.DataFrame(model_linear_1h.predict(df_topredict) ,index = next_hour, columns=['electric-combined-next-hour'])
+st.dataframe(data=predictiondf)
 
 
 
