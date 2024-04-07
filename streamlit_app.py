@@ -106,6 +106,7 @@ model_linear_1h= model_maker_linear_1h()
 st.write(df_topredict)
 predictions = model_linear_1h.predict(df_topredict)
 predictiondf = pd.DataFrame(predictions, columns=['electric-combined-next-hour'],index = df_topredict.index +1)
+st.write(predictiondf)
 
 
 #predictiondf= pd.DataFrame(model_linear_1h.predict(df_topredict) ,index = df_topredict.index +1, columns=['electric-combined-next-hour'])
