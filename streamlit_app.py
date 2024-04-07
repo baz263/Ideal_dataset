@@ -236,7 +236,7 @@ st.write('You selected:', option)
     #st.write(predictiondf)
     #slider for projection amount
     forecast_time = st.select_slider(
-        'Select a color of the rainbow',
+        'Select a time period',
         options=['24', '48', '72', '96', '120'])
     st.write('forecasted projection', forecast_time)
 
