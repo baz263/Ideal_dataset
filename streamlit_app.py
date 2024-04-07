@@ -103,7 +103,8 @@ df_topredict = df_1h_all.tail(1)[['temperature_2m (°C)', 'relative_humidity_2m 
        'wind_direction_10m (°)', 'day', 'hour', 'electric-combined',
        'electric-combined-yesterday', 'electric-combined-last-week']]
 model_linear_1h= model_maker_linear_1h()
-predictiondf= pd.DataFrame(model_linear_1h.predict(df_topredict) ,index = df_topredict.index +1, columns=['electric-combined-next-hour'])
+
+#predictiondf= pd.DataFrame(model_linear_1h.predict(df_topredict) ,index = df_topredict.index +1, columns=['electric-combined-next-hour'])
 
 
 
@@ -219,7 +220,7 @@ with tab1:
         st.pyplot(fig4)
 
 with tab2:
-    st.write(predictiondf)
+    #st.write(predictiondf)
     #slider for projection amount
     forecast_time = st.select_slider(
         'Select a color of the rainbow',
