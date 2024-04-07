@@ -11,6 +11,7 @@ import pickle
 from io import BytesIO
 from joblib import load
 from sklearn.linear_model import LinearRegression
+from linear_regression_plot import linear_regression_plot
 
 
 
