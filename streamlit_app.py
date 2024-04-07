@@ -10,6 +10,8 @@ from fbprophet_plot import fbprophet_plot
 import pickle
 from io import BytesIO
 from joblib import load
+from sklearn.linear_model import LinearRegression
+
 
 
 st.set_page_config(layout="wide")
