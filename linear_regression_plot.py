@@ -10,7 +10,7 @@ def linear_regression_plot(predictiondf, df):
         name='predicted',
         marker=dict(
             size=10,  # Adjust the size as needed
-            color='83c9ff',  # Adjust the color as needed
+            color='#83c9ff',  # Adjust the color as needed
         )
         
     )
