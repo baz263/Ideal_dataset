@@ -228,6 +228,11 @@ with tab1:
         st.pyplot(fig4)
 
 with tab2:
+    option = st.selectbox(
+    'model choice',
+    ('fbprophet','linear regression'))
+
+st.write('You selected:', option)
     #st.write(predictiondf)
     #slider for projection amount
     forecast_time = st.select_slider(
