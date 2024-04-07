@@ -255,8 +255,6 @@ with tab2:
     fig_fbprophet = fbprophet_plot(merged_df)
     st.plotly_chart(fig_fbprophet, use_container_width=True)
 
-    st.write(predictiondf)
-    st.dataframe(data=df_1h_all.tail(148))
     fig_linear = linear_regression_plot(predictiondf, df_1h_all)
     st.plotly_chart(fig_linear, use_container_width=True)
 
