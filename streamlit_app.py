@@ -254,7 +254,7 @@ with tab2:
     fig_fbprophet = fbprophet_plot(merged_df)
     st.plotly_chart(fig_fbprophet, use_container_width=True)
 
-    st.write(df_topredict)
+    st.write(predictiondf)
 
 
 
