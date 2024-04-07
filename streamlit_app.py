@@ -82,6 +82,9 @@ def model_maker(forecast_time):
     #st.write(future)
     return forecast
 
+
+
+
 df_1h_all = df_getter_all()
 
 
@@ -227,6 +230,7 @@ with tab2:
 with tab3:
     with st.container():
         st.write('boob')
+        st.dataframe(data=df_1h_all.tail(148))
         st.header('Community breakdown')
 
 
