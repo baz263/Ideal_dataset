@@ -232,7 +232,7 @@ with tab2:
     'model choice',
     ('fbprophet','linear regression'))
 
-st.write('You selected:', option)
+    st.write('You selected:', option)
     #st.write(predictiondf)
     #slider for projection amount
     forecast_time = st.select_slider(
