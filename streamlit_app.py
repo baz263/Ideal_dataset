@@ -235,32 +235,33 @@ with tab2:
     st.write('You selected:', option)
     #st.write(predictiondf)
     #slider for projection amount
-    forecast_time = st.select_slider(
-        'Select a time period',
-        options=['24', '48', '72', '96', '120'])
-    st.write('forecasted projection', forecast_time)
+    if option == 'fbprophet':
+        forecast_time = st.select_slider(
+            'Select a time period',
+            options=['24', '48', '72', '96', '120'])
+        st.write('forecasted projection', forecast_time)
 
-    fbprophet_dataframe = model_maker(forecast_time)
-    fbprophet_dataframe.index = fbprophet_dataframe['ds']
-    fbprophet_dataframe = fbprophet_dataframe.drop(columns = ['ds'])
+        fbprophet_dataframe = model_maker(forecast_time)
+        fbprophet_dataframe.index = fbprophet_dataframe['ds']
+        fbprophet_dataframe = fbprophet_dataframe.drop(columns = ['ds'])
 
 
-    #fbprophet_dataframe= fbprophet_dataframe.rename(columns = {'ds':'time'})
-    merged_df = fbprophet_dataframe.join(df_1h_all, how='left')
+        #fbprophet_dataframe= fbprophet_dataframe.rename(columns = {'ds':'time'})
+        merged_df = fbprophet_dataframe.join(df_1h_all, how='left')
 
-    #merged_df = fbprophet_dataframe.merge(df_1h_all, on = 'time')
-    
+        #merged_df = fbprophet_dataframe.merge(df_1h_all, on = 'time')
+        
 
-    #merged_df = fbprophet_dataframe.merge(df_1h_all, on = 'time', how='left')
+        #merged_df = fbprophet_dataframe.merge(df_1h_all, on = 'time', how='left')
 
-    #forecast_merge_actual = forecast_pred.merge(df_electric_test, on = 'ds')
+        #forecast_merge_actual = forecast_pred.merge(df_electric_test, on = 'ds')
 
-    merged_df = merged_df[-(24*31):]
-    fig_fbprophet = fbprophet_plot(merged_df)
-    st.plotly_chart(fig_fbprophet, use_container_width=True)
-
-    fig_linear = linear_regression_plot(predictiondf, df_1h_all)
-    st.plotly_chart(fig_linear, use_container_width=True)
+        merged_df = merged_df[-(24*31):]
+        fig_fbprophet = fbprophet_plot(merged_df)
+        st.plotly_chart(fig_fbprophet, use_container_width=True)
+    elif option == 'linear regression':
+        fig_linear = linear_regression_plot(predictiondf, df_1h_all)
+        st.plotly_chart(fig_linear, use_container_width=True)
 
 
 
