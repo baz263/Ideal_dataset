@@ -106,14 +106,13 @@ df_topredict = df_1h_all.tail(1)[['temperature_2m (°C)', 'relative_humidity_2m 
 model_linear_1h= model_maker_linear_1h()
 df_topredict.time = pd.to_datetime(df_topredict.index)
 next_hour = df_topredict.index[-1] + pd.Timedelta(hours=1)
-st.write(df_topredict)
 predictions = model_linear_1h.predict(df_topredict)
 
 
 
 predictiondf= pd.DataFrame(model_linear_1h.predict(df_topredict) , columns=['electric-combined-next-hour'])
 predictiondf['time'] = next_hour
-st.dataframe(data=predictiondf)
+#st.dataframe(data=predictiondf)
 
 
 
@@ -262,7 +261,7 @@ with tab2:
 
 with tab3:
     with st.container():
-        st.write('boob')
+        st.write(df_topredict)
         st.dataframe(data=df_1h_all.tail(148))
         st.header('Community breakdown')
 
