@@ -60,7 +60,8 @@ def df_getter_all():
 
     return df
 
-def model_maker():
+def model_maker(forecast_time):
+    forecast_time = int(forecast_time)
     #area under work
     session = boto3.Session(
     aws_access_key_id = st.secrets['AWS']['AWS_ACCESS_KEY_ID'],
@@ -74,7 +75,7 @@ def model_maker():
     fbprophet_model = s3.Object('electric1hcsvs', 'models/model.pkl').get()
     bytestream = BytesIO(fbprophet_model['Body'].read())
     m = load(bytestream)
-    future = m.make_future_dataframe(periods=72, freq='H')
+    future = m.make_future_dataframe(periods=forecast_time, freq='H')
     forecast = m.predict(future)
     forecast = forecast[['ds', 'yhat']]
     #st.write(forecast)
@@ -198,12 +199,12 @@ with tab1:
 with tab2:
 
     #slider for projection amount
-    color = st.select_slider(
+    forecast_time = st.select_slider(
         'Select a color of the rainbow',
         options=['24', '48', '72', '96', '120'])
-    st.write('forecasted projection', color)
+    st.write('forecasted projection', forecast_time)
 
-    fbprophet_dataframe = model_maker()
+    fbprophet_dataframe = model_maker(forecast_time)
     fbprophet_dataframe.index = fbprophet_dataframe['ds']
     fbprophet_dataframe = fbprophet_dataframe.drop(columns = ['ds'])
 
