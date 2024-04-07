@@ -257,6 +257,9 @@ with tab2:
 
     st.write(predictiondf)
 
+    fig_linear = linear_regression_plot(predictiondf, df_1h_all)
+    st.plotly_chart(fig_linear, use_container_width=True)
+
 
 
 with tab3:
