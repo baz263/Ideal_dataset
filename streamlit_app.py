@@ -116,7 +116,7 @@ predictiondf['time'] = next_hour
 
 
 
-tab1, tab2, tab3, tab4 = st.tabs(["House Breakdown", "Forecasting", 'Coummunity','Dataframe'])
+tab1, tab2, tab3= st.tabs(["House Breakdown", "Forecasting", 'Coummunity'])
 
 houses = ['hourly_61', 'hourly_62']
 
@@ -309,9 +309,6 @@ with tab3:
         st.pyplot(fig_all_day)
 
 
-with tab4:
-    st.header('Dataframe_1W')
-    st.dataframe(data=df.tail(148))
 
 
 
