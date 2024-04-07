@@ -17,7 +17,7 @@ def linear_regression_plot(predictiondf, df):
 
     # Create a line plot for the actual data
     trace2 = go.Scatter(
-        x=df.tail(48)['time'],
+        x=df.tail(48).index,
         y=df.tail(48)['electric-combined'],
         mode='lines',
         name='electric-combined'
