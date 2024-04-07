@@ -105,6 +105,7 @@ df_topredict = df_1h_all.tail(1)[['temperature_2m (°C)', 'relative_humidity_2m 
 model_linear_1h= model_maker_linear_1h()
 st.write(df_topredict)
 model_linear_1h.predict(df_topredict)
+model_linear_1h(df_topredict)
 
 #predictiondf= pd.DataFrame(model_linear_1h.predict(df_topredict) ,index = df_topredict.index +1, columns=['electric-combined-next-hour'])
 
