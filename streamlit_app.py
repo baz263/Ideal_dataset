@@ -196,6 +196,13 @@ with tab1:
         st.pyplot(fig4)
 
 with tab2:
+
+    #slider for projection amount
+    color = st.select_slider(
+        'Select a color of the rainbow',
+        options=['24', '48', '72', '96', '120'])
+    st.write('forecasted projection', options)
+
     fbprophet_dataframe = model_maker()
     fbprophet_dataframe.index = fbprophet_dataframe['ds']
     fbprophet_dataframe = fbprophet_dataframe.drop(columns = ['ds'])
