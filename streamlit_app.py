@@ -66,11 +66,7 @@ def model_maker(forecast_time):
     session = boto3.Session(
     aws_access_key_id = st.secrets['AWS']['AWS_ACCESS_KEY_ID'],
     aws_secret_access_key = st.secrets['AWS']['AWS_SECRET_ACCESS_KEY'])
-    # Create an S3 resource object using the session
-    # s3 = session.resource('s3')
-    # fbprophet_model = s3.Object('electric1hcsvs', 'models/model.pkl').get()
-    # bytestream = BytesIO(fbprophet_model['Body'].read())
-    # m = pickle.load(bytestream)
+
     s3 = session.resource('s3')
     fbprophet_model = s3.Object('electric1hcsvs', 'models/model.pkl').get()
     bytestream = BytesIO(fbprophet_model['Body'].read())
@@ -82,10 +78,31 @@ def model_maker(forecast_time):
     #st.write(future)
     return forecast
 
+def model_maker_linear_1h():
+    session = boto3.Session(
+    aws_access_key_id = st.secrets['AWS']['AWS_ACCESS_KEY_ID'],
+    aws_secret_access_key = st.secrets['AWS']['AWS_SECRET_ACCESS_KEY'])
+
+    s3 = session.resource('s3')
+    fbprophet_model = s3.Object('electric1hcsvs', 'models/linear_6_all_1h.pkl').get()
+    bytestream = BytesIO(fbprophet_model['Body'].read())
+    m = load(bytestream)
+    return m
+
+
+
 
 
 
 df_1h_all = df_getter_all()
+
+df_topredict = df_1h_all.tail(1)[['temperature_2m (°C)', 'relative_humidity_2m (%)',
+       'weather_code (wmo code)', 'wind_speed_10m (km/h)',
+       'wind_direction_10m (°)', 'day', 'hour', 'electric-combined',
+       'electric-combined-yesterday', 'electric-combined-last-week']]
+model_linear_1h= model_maker_linear_1h()
+predictiondf= pd.DataFrame(model_linear_1h.predict(df_topredict) ,index = df_topredict.index +1, columns=['electric-combined-next-hour'])
+
 
 
 tab1, tab2, tab3, tab4 = st.tabs(["House Breakdown", "Forecasting", 'Coummunity','Dataframe'])
@@ -200,7 +217,7 @@ with tab1:
         st.pyplot(fig4)
 
 with tab2:
-
+    st.write(predictiondf)
     #slider for projection amount
     forecast_time = st.select_slider(
         'Select a color of the rainbow',
