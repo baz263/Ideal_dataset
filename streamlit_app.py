@@ -267,8 +267,7 @@ with tab2:
 
 with tab3:
     with st.container():
-        st.write(df_topredict)
-        st.dataframe(data=df_1h_all.tail(148))
+
         st.header('Community breakdown')
 
 
