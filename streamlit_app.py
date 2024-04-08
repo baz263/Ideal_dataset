@@ -198,8 +198,8 @@ predictiondf['time'] = next_hour
 predictiondf_3h= pd.DataFrame(model_linear_3h.predict(df_topredict_3h) , columns=['electric-combined_3H-forecast'])
 predictiondf_3h['time'] = next_3h
 
-predictionidf_3h_rf = pd.DataFrame(predictiondf_3h_rf, columns=['electric-combined_3H-forecast'])
-predictionidf_3h_rf['time'] = next_3h
+# predictionidf_3h_rf = pd.DataFrame(predictiondf_3h_rf, columns=['electric-combined_3H-forecast'])
+# predictionidf_3h_rf['time'] = next_3h
 
 
 tab1, tab2, tab3= st.tabs(["House Breakdown", "Forecasting", 'Coummunity'])
@@ -207,23 +207,11 @@ tab1, tab2, tab3= st.tabs(["House Breakdown", "Forecasting", 'Coummunity'])
 houses = ['hourly_61', 'hourly_62']
 
 
-# with st.sidebar:
-#     for house in houses:
-#         st.checkbox(house)
-
         
 houses = ['61', '62', '63', '65', '73', '90', '96', '106', '105', '136', '128', '139', '140', '145', '146', '168', '169', '171', '162', '175', '208', '212', '225', '228', '227', '231', '238', '242', '249', '255', '262', '264', '263', '266', '268', '259', '276', '311', '328']
 enhanced_houses =['61', '62', '63', '65', '73', '90', '96', '106', '105', '136', '128', '139', '140', '145', '146', '168', '169', '171', '162', '175', '208', '212', '225', '228', '227', '231', '238', '242', '249', '255', '262', '264', '263', '266', '268', '259', '276', '311', '328']
 
-# with st.sidebar:
-#     for house in houses:
-#         if st.checkbox(house):
-#             selected_house = house
-#             break
-# if selected_house is None:
-#     df = df_getter(61)
-# else:
-#     df = df_getter(selected_house)  # Load the DataFrame for the selected house
+
 
 session_state = st.session_state
 
