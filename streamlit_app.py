@@ -313,7 +313,7 @@ with tab2:
     elif timestep == '3H':
 
         
-        fbprophet_dataframe_3H = model_maker_3H_community(6)
+        fbprophet_dataframe_3H = model_maker_3H_community(40)
         fbprophet_dataframe_3H.index = fbprophet_dataframe_3H['ds']
         fbprophet_dataframe_3H = fbprophet_dataframe_3H.drop(columns = ['ds'])
         merged_df_3H = fbprophet_dataframe_3H.join(df_3h_all, how='left')
