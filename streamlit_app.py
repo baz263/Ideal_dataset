@@ -343,7 +343,7 @@ with tab2:
     elif timestep == '3H':
         option = st.selectbox(
         'model choice',
-        ('fbprophet','linear regression'))
+        ('fbprophet','linear regression', 'random forest'))
 
         st.write('You selected:', option)
         if option == 'fbprophet':
