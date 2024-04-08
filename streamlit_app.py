@@ -282,6 +282,10 @@ with tab2:
         fig_linear = linear_regression_plot(predictiondf, df_1h_all)
         st.plotly_chart(fig_linear, use_container_width=True)
 
+    
+    fbprophet_dataframe_3H = model_maker_3H_community(forecast_time)
+    st.write(fbprophet_dataframe_3H)
+
 
 
 with tab3:
