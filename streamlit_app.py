@@ -351,7 +351,7 @@ with tab2:
         fig_fbprophet_3H = fbprophet_plot(merged_df_3H)
         st.plotly_chart(fig_fbprophet_3H, theme= 'streamlit', use_container_width=True)
 
-        fig_linear = linear_regression_plot(predictiondf_3h, df_1h_all)
+        fig_linear = linear_regression_plot(predictiondf_3h, df_3h_all)
         st.plotly_chart(fig_linear, use_container_width=True)
 
 
