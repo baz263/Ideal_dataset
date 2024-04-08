@@ -291,7 +291,7 @@ with tab1:
         st.pyplot(fig4)
 
 with tab2:
-    st.write('predictions_3h')
+    st.write(predictions_3h)
     timestep = st.radio('choose dataframe timestep',
              ['1H', '3H'],
     )
