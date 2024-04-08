@@ -126,6 +126,17 @@ def model_maker_linear_3h():
     m = load(bytestream)
     return m
 
+def model_maker_random_forest_3h():
+    session = boto3.Session(
+    aws_access_key_id = st.secrets['AWS']['AWS_ACCESS_KEY_ID'],
+    aws_secret_access_key = st.secrets['AWS']['AWS_SECRET_ACCESS_KEY'])
+
+    s3 = session.resource('s3')
+    fbprophet_model = s3.Object('electric1hcsvs', 'models/random_forest_6_all_3h.pkl').get()
+    bytestream = BytesIO(fbprophet_model['Body'].read())
+    m = load(bytestream)
+    return m
+
 
 def model_maker_3H_community(forecast_time):
     forecast_time = int(forecast_time)
@@ -172,6 +183,9 @@ df_topredict_3h.time = pd.to_datetime(df_topredict_3h.index)
 next_3h = df_topredict_3h.index[-1] + pd.Timedelta(hours=3)
 predictions_3h = model_linear_1h.predict(df_topredict_3h)
 
+#random forest model info
+random_forest_3h = model_maker_random_forest_3h()   
+predictiondf_3h_rf = random_forest_3h.predict(df_topredict_3h)
 
 
 predictiondf= pd.DataFrame(model_linear_1h.predict(df_topredict) , columns=['electric-combined-next-hour'])
@@ -181,6 +195,8 @@ predictiondf['time'] = next_hour
 predictiondf_3h= pd.DataFrame(model_linear_3h.predict(df_topredict_3h) , columns=['electric-combined_3H-forecast'])
 predictiondf_3h['time'] = next_3h
 
+predictionidf_3h_rf = pd.DataFrame(predictiondf_3h_rf, columns=['electric-combined_3H-forecast'])
+predictionidf_3h_rf['time'] = next_3h
 
 
 tab1, tab2, tab3= st.tabs(["House Breakdown", "Forecasting", 'Coummunity'])
@@ -363,6 +379,9 @@ with tab2:
 
             fig_linear = linear_regression_plot_3h(predictiondf_3h, df_3h_all)
             st.plotly_chart(fig_linear, use_container_width=True)
+    
+    fig_linear_rf = linear_regression_plot_3h(predictionidf_3h_rf, df_3h_all)
+    st.plotly_chart(fig_linear_rf, use_container_width=True)
 
 
     # st.write(fbprophet_dataframe_3H)
