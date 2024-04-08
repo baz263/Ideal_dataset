@@ -310,7 +310,8 @@ with tab2:
     fbprophet_dataframe_3H.index = fbprophet_dataframe_3H['ds']
     fbprophet_dataframe_3H = fbprophet_dataframe_3H.drop(columns = ['ds'])
     merged_df_3H = fbprophet_dataframe_3H.join(df_3h_all, how='left')
-    merged_df = merged_df[-(8*31):]
+    merged_df_3H = merged_df_3H[-(8*31):]
+
     fig_fbprophet_3H = fbprophet_plot(merged_df_3H)
     st.plotly_chart(fig_fbprophet_3H, theme= 'streamlit', use_container_width=True)
 
