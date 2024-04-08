@@ -311,7 +311,7 @@ with tab2:
     fbprophet_dataframe_3H = fbprophet_dataframe_3H.drop(columns = ['ds'])
     merged_df_3H = fbprophet_dataframe_3H.join(df_3h_all, how='left')
     fig_fbprophet_3H = fbprophet_plot(merged_df_3H)
-    st.plotly_chart(fig_fbprophet_3H, use_container_width=True)
+    st.plotly_chart(fig_fbprophet_3H, use_container_width=True, title='Community forecast 3H')
 
 
     # st.write(fbprophet_dataframe_3H)
