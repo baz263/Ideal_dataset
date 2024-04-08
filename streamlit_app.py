@@ -308,7 +308,7 @@ with tab2:
         
         option = st.selectbox(
         'model choice',
-        ('fbprophet','linear regression', 'random forest'))
+        ('fbprophet','linear regression'))
 
         st.write('You selected:', option)
         #st.write(predictiondf)
