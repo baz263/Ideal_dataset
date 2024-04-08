@@ -311,9 +311,13 @@ with tab2:
             fig_linear = linear_regression_plot(predictiondf, df_1h_all)
             st.plotly_chart(fig_linear, use_container_width=True)
     elif timestep == '3H':
+        forecast_time = st.select_slider(
+                'Select a time period',
+                options=['24', '48', '72', '96', '120'])
+        st.write('forecasted projection', forecast_time)
 
         
-        fbprophet_dataframe_3H = model_maker_3H_community(40)
+        fbprophet_dataframe_3H = model_maker_3H_community(forecast_time)
         fbprophet_dataframe_3H.index = fbprophet_dataframe_3H['ds']
         fbprophet_dataframe_3H = fbprophet_dataframe_3H.drop(columns = ['ds'])
         merged_df_3H = fbprophet_dataframe_3H.join(df_3h_all, how='left')
