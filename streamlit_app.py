@@ -307,8 +307,13 @@ with tab2:
 
     
     fbprophet_dataframe_3H = model_maker_3H_community(forecast_time)
+    fbprophet_dataframe_3H.index = fbprophet_dataframe_3H['ds']
+    fbprophet_dataframe_3H = fbprophet_dataframe_3H.drop(columns = ['ds'])
+    merged_df_3H = fbprophet_dataframe_3H.join(df_3h_all, how='left')
+
     st.write(fbprophet_dataframe_3H)
     st.write(df_3h_all)
+    st.write(merged_df_3H)
 
 
 
