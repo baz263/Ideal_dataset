@@ -63,6 +63,28 @@ def df_getter_all():
 
     return df
 
+def df_getter_3Hall():
+    session = boto3.Session(
+        aws_access_key_id = st.secrets['AWS']['AWS_ACCESS_KEY_ID'],
+        aws_secret_access_key = st.secrets['AWS']['AWS_SECRET_ACCESS_KEY'])
+
+
+    # Create an S3 resource object using the session
+    s3 = session.resource('s3')
+
+    obj = s3.Object('electric1hcsvs', f'combined_1h/6_months_data_3H.csv')
+    response = obj.get()
+
+    # The object's data is in the 'Body' field of the response
+    data = response['Body'].read().decode('utf-8')
+
+    # Use pandas to read the CSV data into a DataFrame
+    df = pd.read_csv(StringIO(data))
+    df.time = pd.to_datetime(df['time'])
+    df.set_index('time', inplace=True)
+
+    return df
+
 def model_maker(forecast_time):
     forecast_time = int(forecast_time)
     #area under work
@@ -117,6 +139,7 @@ def model_maker_3H_community(forecast_time):
 
 
 df_1h_all = df_getter_all()
+df_3h_all = df_getter_3Hall()
 
 df_topredict = df_1h_all.tail(1)[['temperature_2m (°C)', 'relative_humidity_2m (%)',
        'weather_code (wmo code)', 'wind_speed_10m (km/h)',
@@ -285,6 +308,7 @@ with tab2:
     
     fbprophet_dataframe_3H = model_maker_3H_community(forecast_time)
     st.write(fbprophet_dataframe_3H)
+    st.write(df_3h_all)
 
 
 
