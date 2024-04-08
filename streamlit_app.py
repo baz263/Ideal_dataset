@@ -12,6 +12,7 @@ from io import BytesIO
 from joblib import load
 from sklearn.linear_model import LinearRegression
 from linear_regression_plot import linear_regression_plot
+from linear_regression_plot_3h import linear_regression_plot_3h
 
 
 
@@ -351,7 +352,7 @@ with tab2:
         fig_fbprophet_3H = fbprophet_plot(merged_df_3H)
         st.plotly_chart(fig_fbprophet_3H, theme= 'streamlit', use_container_width=True)
 
-        fig_linear = linear_regression_plot(predictiondf_3h, df_3h_all)
+        fig_linear = linear_regression_plot_3h(predictiondf_3h, df_3h_all)
         st.plotly_chart(fig_linear, use_container_width=True)
 
 
