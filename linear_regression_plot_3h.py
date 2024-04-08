@@ -28,7 +28,7 @@ def linear_regression_plot_3h(predictiondf, df):
 
     # Create a layout
     layout = go.Layout(
-        title='Electricity consumption forecast: Linear Regression',
+        title='Electricity consumption forecast',
         xaxis=dict(title='time'),
         yaxis=dict(
             title='Electricity consumption',
