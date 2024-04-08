@@ -196,8 +196,8 @@ predictiondf['time'] = next_hour
 predictiondf_3h= pd.DataFrame(model_linear_3h.predict(df_topredict_3h) , columns=['electric-combined_3H-forecast'])
 predictiondf_3h['time'] = next_3h
 
-# predictionidf_3h_rf = pd.DataFrame(predictiondf_3h_rf, columns=['electric-combined_3H-forecast'])
-# predictionidf_3h_rf['time'] = next_3h
+predictionidf_3h_rf = pd.DataFrame(predictiondf_3h_rf, columns=['electric-combined_3H-forecast'])
+predictionidf_3h_rf['time'] = next_3h
 
 
 tab1, tab2, tab3= st.tabs(["House Breakdown", "Forecasting", 'Coummunity'])
