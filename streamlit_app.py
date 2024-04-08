@@ -270,6 +270,10 @@ with tab1:
         st.pyplot(fig4)
 
 with tab2:
+    st.radio('choose dataframe timestep',
+             ['1H', '3H'],
+    )
+    
     option = st.selectbox(
     'model choice',
     ('fbprophet','linear regression'))
