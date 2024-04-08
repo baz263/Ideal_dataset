@@ -261,6 +261,7 @@ with tab2:
         st.write('forecasted projection', forecast_time)
 
         fbprophet_dataframe = model_maker(forecast_time)
+        st.write(fbprophet_dataframe)
         fbprophet_dataframe.index = fbprophet_dataframe['ds']
         fbprophet_dataframe = fbprophet_dataframe.drop(columns = ['ds'])
 
