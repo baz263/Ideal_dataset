@@ -358,6 +358,9 @@ with tab2:
         elif option == 'linear regression':
             fig_linear = linear_regression_plot(predictiondf, df_1h_all)
             st.plotly_chart(fig_linear, use_container_width=True)
+        elif option == 'random forest':
+            fig_linear_rf = linear_regression_plot(predictiondf_rf, df_1h_all)
+            st.plotly_chart(fig_linear_rf, use_container_width=True)
     elif timestep == '3H':
         option = st.selectbox(
         'model choice',
