@@ -114,6 +114,17 @@ def model_maker_linear_1h():
     m = load(bytestream)
     return m
 
+def model_maker_linear_3h():
+    session = boto3.Session(
+    aws_access_key_id = st.secrets['AWS']['AWS_ACCESS_KEY_ID'],
+    aws_secret_access_key = st.secrets['AWS']['AWS_SECRET_ACCESS_KEY'])
+
+    s3 = session.resource('s3')
+    fbprophet_model = s3.Object('electric1hcsvs', 'models/linear_6_all_1h.pkl').get()
+    bytestream = BytesIO(fbprophet_model['Body'].read())
+    m = load(bytestream)
+    return m
+
 
 def model_maker_3H_community(forecast_time):
     forecast_time = int(forecast_time)
@@ -149,6 +160,16 @@ model_linear_1h= model_maker_linear_1h()
 df_topredict.time = pd.to_datetime(df_topredict.index)
 next_hour = df_topredict.index[-1] + pd.Timedelta(hours=1)
 predictions = model_linear_1h.predict(df_topredict)
+
+#3H linear model info
+df_topredict_3h = df_3h_all.tail(1)[['temperature_2m (°C)', 'relative_humidity_2m (%)',
+       'weather_code (wmo code)', 'wind_speed_10m (km/h)',
+       'wind_direction_10m (°)', 'day', 'hour', 'electric-combined',
+       'electric-combined-yesterday', 'electric-combined-last-week']]
+model_linear_3h= model_maker_linear_3h()
+df_topredict_3h.time = pd.to_datetime(df_topredict_3h.index)
+next_hour = df_topredict_3h.index[-1] + pd.Timedelta(hours=3)
+predictions_3h = model_linear_1h.predict(df_topredict_3h)
 
 
 
@@ -270,6 +291,7 @@ with tab1:
         st.pyplot(fig4)
 
 with tab2:
+    st.write('predictions_3h')
     timestep = st.radio('choose dataframe timestep',
              ['1H', '3H'],
     )
