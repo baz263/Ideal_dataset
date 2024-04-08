@@ -187,7 +187,6 @@ predictions_3h = model_linear_1h.predict(df_topredict_3h)
 #random forest model info
 random_forest_3h = model_maker_random_forest_3h()   
 predictiondf_3h_rf = random_forest_3h.predict(df_topredict_3h)
-st.write(predictiondf_3h_rf)
 
 
 predictiondf= pd.DataFrame(model_linear_1h.predict(df_topredict) , columns=['electric-combined-next-hour'])
@@ -369,8 +368,8 @@ with tab2:
             st.plotly_chart(fig_linear, use_container_width=True)
     
 
-    # fig_linear_rf = linear_regression_plot_3h(predictionidf_3h_rf, df_3h_all)
-    # st.plotly_chart(fig_linear_rf, use_container_width=True)
+    fig_linear_rf = linear_regression_plot_3h(predictionidf_3h_rf, df_3h_all)
+    st.plotly_chart(fig_linear_rf, use_container_width=True)
 
 
 
