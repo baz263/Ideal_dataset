@@ -337,23 +337,33 @@ with tab2:
             fig_linear = linear_regression_plot(predictiondf, df_1h_all)
             st.plotly_chart(fig_linear, use_container_width=True)
     elif timestep == '3H':
-        forecast_time = st.select_slider(
-                'Select a time period',
-                options=['24', '48', '72', '96', '120'])
-        st.write('forecasted projection', forecast_time)
+        option = st.selectbox(
+        'model choice',
+        ('fbprophet','linear regression'))
 
-        
-        fbprophet_dataframe_3H = model_maker_3H_community(forecast_time)
-        fbprophet_dataframe_3H.index = fbprophet_dataframe_3H['ds']
-        fbprophet_dataframe_3H = fbprophet_dataframe_3H.drop(columns = ['ds'])
-        merged_df_3H = fbprophet_dataframe_3H.join(df_3h_all, how='left')
-        merged_df_3H = merged_df_3H[-(8*31):]
+        st.write('You selected:', option)
+        #st.write(predictiondf)
+        #slider for projection amount
+        if option == 'fbprophet':
+            
+            forecast_time = st.select_slider(
+                    'Select a time period',
+                    options=['24', '48', '72', '96', '120'])
+            st.write('forecasted projection', forecast_time)
 
-        fig_fbprophet_3H = fbprophet_plot(merged_df_3H)
-        st.plotly_chart(fig_fbprophet_3H, theme= 'streamlit', use_container_width=True)
+            
+            fbprophet_dataframe_3H = model_maker_3H_community(forecast_time)
+            fbprophet_dataframe_3H.index = fbprophet_dataframe_3H['ds']
+            fbprophet_dataframe_3H = fbprophet_dataframe_3H.drop(columns = ['ds'])
+            merged_df_3H = fbprophet_dataframe_3H.join(df_3h_all, how='left')
+            merged_df_3H = merged_df_3H[-(8*31):]
 
-        fig_linear = linear_regression_plot_3h(predictiondf_3h, df_3h_all)
-        st.plotly_chart(fig_linear, use_container_width=True)
+            fig_fbprophet_3H = fbprophet_plot(merged_df_3H)
+            st.plotly_chart(fig_fbprophet_3H, theme= 'streamlit', use_container_width=True)
+        elif option == 'linear regression':
+
+            fig_linear = linear_regression_plot_3h(predictiondf_3h, df_3h_all)
+            st.plotly_chart(fig_linear, use_container_width=True)
 
 
     # st.write(fbprophet_dataframe_3H)
