@@ -187,8 +187,8 @@ next_3h = df_topredict_3h.index[-1] + pd.Timedelta(hours=3)
 predictions_3h = model_linear_1h.predict(df_topredict_3h)
 
 #random forest model info
-random_forest_3h = model_maker_random_forest_3h()   
-predictiondf_3h_rf = random_forest_3h.predict(df_topredict_3h)
+# random_forest_3h = model_maker_random_forest_3h()   
+# predictiondf_3h_rf = random_forest_3h.predict(df_topredict_3h)
 
 
 predictiondf= pd.DataFrame(model_linear_1h.predict(df_topredict) , columns=['electric-combined-next-hour'])
