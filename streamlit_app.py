@@ -201,7 +201,10 @@ predictiondf_3h_rf = random_forest_3h.predict(df_topredict_3h)
 #work area
 random_forest_1h = model_maker_random_forest_1h()   
 predictiondf_1h_rf = random_forest_1h.predict(df_topredict)
-st.write(predictiondf_1h_rf)
+
+predictiondf_rf= pd.DataFrame(random_forest_1h.predict(df_topredict) , columns=['electric-combined-next-hour'])
+predictiondf_rf['time'] = next_hour
+st.dataframe(data=predictiondf_rf)
 
 
 predictiondf= pd.DataFrame(model_linear_1h.predict(df_topredict) , columns=['electric-combined-next-hour'])
