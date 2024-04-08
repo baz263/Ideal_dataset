@@ -93,6 +93,25 @@ def model_maker_linear_1h():
     return m
 
 
+def model_maker_3H_community(forecast_time):
+    forecast_time = int(forecast_time)
+    #area under work
+    session = boto3.Session(
+    aws_access_key_id = st.secrets['AWS']['AWS_ACCESS_KEY_ID'],
+    aws_secret_access_key = st.secrets['AWS']['AWS_SECRET_ACCESS_KEY'])
+
+    s3 = session.resource('s3')
+    fbprophet_model = s3.Object('electric1hcsvs', 'models/fbprophet_3H.pkl').get()
+    bytestream = BytesIO(fbprophet_model['Body'].read())
+    m = load(bytestream)
+    future = m.make_future_dataframe(periods=forecast_time, freq='3H')
+    forecast = m.predict(future)
+    forecast = forecast[['ds', 'yhat']]
+    #st.write(forecast)
+    #st.write(future)
+    return forecast
+
+
 
 
 
