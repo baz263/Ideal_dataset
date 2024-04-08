@@ -14,6 +14,7 @@ from sklearn.linear_model import LinearRegression
 from linear_regression_plot import linear_regression_plot
 from linear_regression_plot_3h import linear_regression_plot_3h
 from sklearn.ensemble import RandomForestRegressor
+from sklearn.ensemble import RandomForestClassifier
 
 
 
