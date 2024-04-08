@@ -168,7 +168,7 @@ df_topredict_3h = df_3h_all.tail(1)[['temperature_2m (°C)', 'relative_humidity_
        'electric-combined-yesterday', 'electric-combined-last-week']]
 model_linear_3h= model_maker_linear_3h()
 df_topredict_3h.time = pd.to_datetime(df_topredict_3h.index)
-next_hour = df_topredict_3h.index[-1] + pd.Timedelta(hours=3)
+next_3h = df_topredict_3h.index[-1] + pd.Timedelta(hours=3)
 predictions_3h = model_linear_1h.predict(df_topredict_3h)
 
 
@@ -176,6 +176,9 @@ predictions_3h = model_linear_1h.predict(df_topredict_3h)
 predictiondf= pd.DataFrame(model_linear_1h.predict(df_topredict) , columns=['electric-combined-next-hour'])
 predictiondf['time'] = next_hour
 #st.dataframe(data=predictiondf)
+
+predictiondf_3h= pd.DataFrame(model_linear_3h.predict(df_topredict_3h) , columns=['electric-combined_3H-forecast'])
+predictiondf_3h['time'] = next_3h
 
 
 
@@ -347,6 +350,9 @@ with tab2:
 
         fig_fbprophet_3H = fbprophet_plot(merged_df_3H)
         st.plotly_chart(fig_fbprophet_3H, theme= 'streamlit', use_container_width=True)
+
+        fig_linear = linear_regression_plot(predictiondf_3h, df_1h_all)
+            st.plotly_chart(fig_linear, use_container_width=True)
 
 
     # st.write(fbprophet_dataframe_3H)
