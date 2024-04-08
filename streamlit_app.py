@@ -308,7 +308,7 @@ with tab2:
         
         option = st.selectbox(
         'model choice',
-        ('fbprophet','linear regression'))
+        ('fbprophet','linear regression', 'random forest'))
 
         st.write('You selected:', option)
         #st.write(predictiondf)
@@ -366,10 +366,9 @@ with tab2:
 
             fig_linear = linear_regression_plot_3h(predictiondf_3h, df_3h_all)
             st.plotly_chart(fig_linear, use_container_width=True)
-    
-
-    fig_linear_rf = linear_regression_plot_3h(predictionidf_3h_rf, df_3h_all)
-    st.plotly_chart(fig_linear_rf, use_container_width=True)
+        elif option == 'random forest':
+            fig_linear_rf = linear_regression_plot_3h(predictionidf_3h_rf, df_3h_all)
+            st.plotly_chart(fig_linear_rf, use_container_width=True)
 
 
 
