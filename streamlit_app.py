@@ -359,8 +359,6 @@ with tab2:
         ('fbprophet','linear regression'))
 
         st.write('You selected:', option)
-        #st.write(predictiondf)
-        #slider for projection amount
         if option == 'fbprophet':
             
             forecast_time = st.select_slider(
@@ -382,13 +380,11 @@ with tab2:
             fig_linear = linear_regression_plot_3h(predictiondf_3h, df_3h_all)
             st.plotly_chart(fig_linear, use_container_width=True)
     
-    fig_linear_rf = linear_regression_plot_3h(predictionidf_3h_rf, df_3h_all)
-    st.plotly_chart(fig_linear_rf, use_container_width=True)
+
+    # fig_linear_rf = linear_regression_plot_3h(predictionidf_3h_rf, df_3h_all)
+    # st.plotly_chart(fig_linear_rf, use_container_width=True)
 
 
-    # st.write(fbprophet_dataframe_3H)
-    # st.write(df_3h_all)
-    # st.write(merged_df_3H)
 
 
 
