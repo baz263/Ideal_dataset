@@ -7,4 +7,7 @@ seaborn
 prophet==1.1.4
 joblib
 cmdstanpy==1.1.0
-scikit-learn
+#scikit-learn
+scikit-learn==1.2.2
+
+

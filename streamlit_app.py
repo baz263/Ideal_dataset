@@ -142,7 +142,6 @@ def model_maker_random_forest_3h():
 
 def model_maker_3H_community(forecast_time):
     forecast_time = int(forecast_time)
-    #area under work
     session = boto3.Session(
     aws_access_key_id = st.secrets['AWS']['AWS_ACCESS_KEY_ID'],
     aws_secret_access_key = st.secrets['AWS']['AWS_SECRET_ACCESS_KEY'])
