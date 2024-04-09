@@ -227,7 +227,7 @@ houses = ['hourly_61', 'hourly_62']
 #houses = ['61', '62', '63', '65', '73', '90', '96', '106', '105', '136', '128', '139', '140', '145', '146', '168', '169', '171', '162', '175', '208', '212', '225', '228', '227', '231', '238', '242', '249', '255', '262', '264', '263', '266', '268', '259', '276', '311', '328']
 #houses = ['61', '62', '63', '65', '73', '90']
 enhanced_houses =['61', '62', '63', '65', '73', '90', '96', '106', '105', '136', '128', '139', '140', '145', '146', '168', '169', '171', '162', '175', '208', '212', '225', '228', '227', '231', '238', '242', '249', '255', '262', '264', '263', '266', '268', '259', '276', '311', '328']
-houses ['47', '59', '61', '62', '63', '64', '65', '66', '67', '68']
+houses ['62', '63', '64', '65', '66', '67', '68']
 
 
 session_state = st.session_state
@@ -251,8 +251,7 @@ with st.sidebar:
                     session_state[other_house] = False
 
 # Find the selected house
-#selected_house = next((house for house in houses if session_state[house]), None)
-selected_house = next((house for house in houses if house in session_state), None)
+selected_house = next((house for house in houses if session_state[house]), None)
 
 if selected_house is None:
     df = df_getter(47)
