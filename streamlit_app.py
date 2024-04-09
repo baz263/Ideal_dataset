@@ -251,7 +251,8 @@ with st.sidebar:
                     session_state[other_house] = False
 
 # Find the selected house
-selected_house = next((house for house in houses if session_state[house]), None)
+#selected_house = next((house for house in houses if session_state[house]), None)
+selected_house = next((house for house in houses if house in session_state), None)
 
 if selected_house is None:
     df = df_getter(47)
