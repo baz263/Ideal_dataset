@@ -190,7 +190,7 @@ df_topredict_3h = df_3h_all.tail(1)[['temperature_2m (°C)', 'relative_humidity_
        'wind_direction_10m (°)', 'day', 'hour', 'electric-combined',
        'electric-combined-yesterday', 'electric-combined-last-week']]
 model_linear_3h= model_maker_linear_3h()
-df_topredict_3h.time = pd.to_datetime(df_topredict_3h.index)
+df_topredict_3h['time'] = pd.to_datetime(df_topredict_3h.index)
 next_3h = df_topredict_3h.index[-1] + pd.Timedelta(hours=3)
 predictions_3h = model_linear_1h.predict(df_topredict_3h)
 
