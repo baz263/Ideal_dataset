@@ -254,7 +254,7 @@ with st.sidebar:
 selected_house = next((house for house in houses if session_state[house]), None)
 
 if selected_house is None:
-    df = df_getter(106)
+    df = df_getter(67)
 else:
     df = df_getter(selected_house) 
 
