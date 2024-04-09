@@ -32,7 +32,7 @@ def df_getter(homeid):
     # Create an S3 resource object using the session
     s3 = session.resource('s3')
 
-    obj = s3.Object('electric1hcsvs', f'1H_CSV_2//hourly_{homeid}.csv')
+    obj = s3.Object('electric1hcsvs', f'1H_CSV_2/hourly_{homeid}.csv')
     response = obj.get()
 
     # The object's data is in the 'Body' field of the response
