@@ -32,7 +32,7 @@ def df_getter(homeid):
     # Create an S3 resource object using the session
     s3 = session.resource('s3')
 
-    obj = s3.Object('electric1hcsvs', f'1H_csv/hourly_{homeid}.csv')
+    obj = s3.Object('electric1hcsvs', f'1H_CSV_2//hourly_{homeid}.csv')
     response = obj.get()
 
     # The object's data is in the 'Body' field of the response
@@ -225,9 +225,9 @@ houses = ['hourly_61', 'hourly_62']
 
         
 #houses = ['61', '62', '63', '65', '73', '90', '96', '106', '105', '136', '128', '139', '140', '145', '146', '168', '169', '171', '162', '175', '208', '212', '225', '228', '227', '231', '238', '242', '249', '255', '262', '264', '263', '266', '268', '259', '276', '311', '328']
-houses = ['61', '62', '63', '65', '73', '90']
+#houses = ['61', '62', '63', '65', '73', '90']
 enhanced_houses =['61', '62', '63', '65', '73', '90', '96', '106', '105', '136', '128', '139', '140', '145', '146', '168', '169', '171', '162', '175', '208', '212', '225', '228', '227', '231', '238', '242', '249', '255', '262', '264', '263', '266', '268', '259', '276', '311', '328']
-
+houses ['47', '59', '61', '62', '63', '64', '65', '66', '67', '68']
 
 
 session_state = st.session_state
