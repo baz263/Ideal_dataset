@@ -180,7 +180,7 @@ df_topredict = df_1h_all.tail(1)[['temperature_2m (°C)', 'relative_humidity_2m 
        'wind_direction_10m (°)', 'day', 'hour', 'electric-combined',
        'electric-combined-yesterday', 'electric-combined-last-week']]
 model_linear_1h= model_maker_linear_1h()
-df_topredict.time = pd.to_datetime(df_topredict.index)
+df_topredict['time'] = pd.to_datetime(df_topredict.index)
 next_hour = df_topredict.index[-1] + pd.Timedelta(hours=1)
 predictions = model_linear_1h.predict(df_topredict)
 
@@ -227,6 +227,7 @@ houses = ['hourly_61', 'hourly_62']
 #houses = ['61', '62', '63', '65', '73', '90', '96', '106', '105', '136', '128', '139', '140', '145', '146', '168', '169', '171', '162', '175', '208', '212', '225', '228', '227', '231', '238', '242', '249', '255', '262', '264', '263', '266', '268', '259', '276', '311', '328']
 #houses = ['61', '62', '63', '65', '73', '90']
 enhanced_houses =['61', '62', '63', '65', '73', '90', '96', '106', '105', '136', '128', '139', '140', '145', '146', '168', '169', '171', '162', '175', '208', '212', '225', '228', '227', '231', '238', '242', '249', '255', '262', '264', '263', '266', '268', '259', '276', '311', '328']
+
 houses ['62', '63', '64', '65', '66', '67', '68']
 
 
