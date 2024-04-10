@@ -35,7 +35,7 @@ def hourly_consumption2(df, homeid=None):
 
 def hourly_consumption(df):
     df = df['electric-combined'].copy().reset_index()
-    fig = sns.boxplot(data = df, x = df.time.dt.hour, y = 'electric-combined')
+    fig, ax = sns.boxplot(data = df, x = df.time.dt.hour, y = 'electric-combined')
     fig.set_title('Hourly electricity consumption')
     fig.set_xlabel('Hour')
     fig.set_ylabel('Electricity consumption')
