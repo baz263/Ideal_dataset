@@ -276,7 +276,7 @@ with tab1:
         elif selected_time_period == 'Last 30 days':
             df2 = df[-30*24:]
         elif selected_time_period == 'Last 365 days':
-            df2 = df[-24*365:]
+            df2 = df
         elif selected_time_period == 'All':
             df2 = df
         else:
