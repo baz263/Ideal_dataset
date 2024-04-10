@@ -87,7 +87,7 @@ def df_getter_3Hall():
     df.set_index('time', inplace=True)
 
     return df
-
+@st.cache
 def model_maker(forecast_time):
     forecast_time = int(forecast_time)
     #area under work
@@ -105,6 +105,7 @@ def model_maker(forecast_time):
     #st.write(forecast)
     #st.write(future)
     return forecast
+
 
 def model_maker_linear_1h():
     session = boto3.Session(
