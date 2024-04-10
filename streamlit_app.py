@@ -45,7 +45,6 @@ def df_getter(homeid):
 
     return df
 
-@st.cache
 def df_getter_all():
     session = boto3.Session(
         aws_access_key_id = st.secrets['AWS']['AWS_ACCESS_KEY_ID'],
