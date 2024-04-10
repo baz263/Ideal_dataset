@@ -429,7 +429,7 @@ with tab3:
         fig_hourly_consumption_all = hourly_consumption2(df_1h_all_2)
         st.plotly_chart(fig_hourly_consumption_all,use_container_width=True)
 
-        fig6 = hourly_consumption2(df_1h_all_2)
+        fig6 = hourly_consumption(df_1h_all_2)
         st.plotly_chart(fig6,use_container_width=True)
 
 
