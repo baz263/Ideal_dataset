@@ -3,7 +3,7 @@ import boto3
 from io import StringIO
 import pandas as pd
 from heatmap import heatmap2
-from hourly_consumption import hourly_consumption2
+from hourly_consumption import hourly_consumption2, hourly_consumption
 from power_hour_count import power_hour_count
 from day_consumption import day_consumption_outliersremoved
 from fbprophet_plot import fbprophet_plot
@@ -317,6 +317,9 @@ with tab1:
 
         fig4 = day_consumption_outliersremoved(df)
         st.pyplot(fig4)
+
+        fig5 = hourly_consumption(df)
+        st.pyplot(fig5)
 
 with tab2:
     timestep = st.radio('choose dataframe timestep',
