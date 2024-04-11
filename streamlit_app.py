@@ -265,6 +265,8 @@ if selected_house is None:
 else:
     df = df_getter(selected_house) 
 
+df2= None
+
 with tab1:
     with st.container():
         st.header('House breakdown')
