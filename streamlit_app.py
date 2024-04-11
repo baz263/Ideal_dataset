@@ -90,6 +90,7 @@ def df_getter_3Hall():
 
     return df
 
+st.cache_resource()
 def model_maker(forecast_time):
     forecast_time = int(forecast_time)
     #area under work
