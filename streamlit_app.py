@@ -452,3 +452,6 @@ with tab3:
     with col3:
         fig_all_day = day_consumption_outliersremoved(df_1h_all_2)
         st.pyplot(fig_all_day)
+
+        fig6 = hourly_consumption(df_1h_all_2)
+        st.pyplot(fig6)
