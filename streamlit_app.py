@@ -275,7 +275,7 @@ with tab1:
         time_periods = ['Last 7 days','Last 30 days', 'Last 365 days', 'All']
 
         # Create the dropdown menu and get the selected time period
-        selected_time_period = st.selectbox('Select time period', time_periods, key = 'chosen_house')
+        selected_time_period = st.selectbox('Select time period', time_periods, key = 'chosen_house', index=3)
 
         # Filter the DataFrame based on the selected time period
         if selected_time_period == 'Last 7 days':
