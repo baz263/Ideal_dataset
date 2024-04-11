@@ -279,9 +279,9 @@ with tab1:
 
         # Filter the DataFrame based on the selected time period
         if selected_time_period == 'Last 7 days':
-            df2 = df[-7*24:]
+            df2 = df[-7*24:].copy()
         elif selected_time_period == 'Last 30 days':
-            df2 = df[-30*24:]
+            df2 = df[-30*24:].copy()
         elif selected_time_period == 'Last 365 days':
             df2 = df
         elif selected_time_period == 'All':
