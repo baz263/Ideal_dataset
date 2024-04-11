@@ -313,9 +313,9 @@ with tab1:
     col1, col2 = st.columns([3,2])
 
     with col2:
-        st.dataframe(df.head(1))
-        st.dataframe(df.tail(1))
-        fig1 = heatmap2(df)
+        st.dataframe(df2.head(1))
+        st.dataframe(df2.tail(1))
+        fig1 = heatmap2(df2)
         fig1.update_layout(autosize = True)
 
         st.plotly_chart(fig1 ,use_container_width =True)
