@@ -291,7 +291,7 @@ with tab1:
 
 
         fig2 = hourly_consumption2(df)
-        st.plotly_chart(fig2,use_container_width=True)
+        #st.plotly_chart(fig2,use_container_width=True)
 
        
 
