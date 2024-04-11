@@ -287,7 +287,7 @@ with tab1:
         elif selected_time_period == 'All':
             df2 = df
         else:
-            df2 = df[-30*24:]
+            df2 = df
 
        
         fig2 = hourly_consumption2(df2)
