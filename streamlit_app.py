@@ -110,6 +110,7 @@ def model_maker(forecast_time):
     return forecast
 
 
+@st.cache_resource()
 def model_maker_linear_1h():
     session = boto3.Session(
     aws_access_key_id = st.secrets['AWS']['AWS_ACCESS_KEY_ID'],
@@ -121,6 +122,7 @@ def model_maker_linear_1h():
     m = load(bytestream)
     return m
 
+@st.cache_resource()
 def model_maker_linear_3h():
     session = boto3.Session(
     aws_access_key_id = st.secrets['AWS']['AWS_ACCESS_KEY_ID'],
@@ -132,6 +134,7 @@ def model_maker_linear_3h():
     m = load(bytestream)
     return m
 
+@st.cache_resource()
 def model_maker_random_forest_3h():
     session = boto3.Session(
     aws_access_key_id = st.secrets['AWS']['AWS_ACCESS_KEY_ID'],
@@ -142,6 +145,7 @@ def model_maker_random_forest_3h():
     m = load(bytestream)
     return m
 
+@st.cache_resource()
 def model_maker_random_forest_1h():
     session = boto3.Session(
     aws_access_key_id = st.secrets['AWS']['AWS_ACCESS_KEY_ID'],
@@ -152,7 +156,7 @@ def model_maker_random_forest_1h():
     m = load(bytestream)
     return m
 
-
+@st.cache_resource()
 def model_maker_3H_community(forecast_time):
     forecast_time = int(forecast_time)
     session = boto3.Session(
