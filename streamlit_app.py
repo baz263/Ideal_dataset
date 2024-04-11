@@ -289,9 +289,8 @@ with tab1:
         else:
             df2 = df
 
-        st.write('cunt')
-        fig2 = hourly_consumption2(df)
-        st.plotly_chart(fig2,use_container_width=True)
+        # fig2 = hourly_consumption2(df)
+        # st.plotly_chart(fig2,use_container_width=True)
 
        
 
