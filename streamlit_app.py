@@ -21,6 +21,7 @@ from sklearn.ensemble import RandomForestClassifier
 
 st.set_page_config(layout="wide")
 
+@st.cache_data()
 def df_getter(homeid):
     session = boto3.Session(
         aws_access_key_id = st.secrets['AWS']['AWS_ACCESS_KEY_ID'],
@@ -66,6 +67,7 @@ def df_getter_all():
 
     return df
 
+@st.cache_data()
 def df_getter_3Hall():
     session = boto3.Session(
         aws_access_key_id = st.secrets['AWS']['AWS_ACCESS_KEY_ID'],
