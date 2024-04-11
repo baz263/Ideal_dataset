@@ -275,7 +275,7 @@ with tab1:
         time_periods = ['Last 7 days','Last 30 days', 'Last 365 days', 'All']
 
         # Create the dropdown menu and get the selected time period
-        selected_time_period = st.selectbox('Select time period', time_periods, key = 'chosen_house', index=3)
+        selected_time_period = st.selectbox('Select time period', time_periods, key = 'chosen_house')
 
         # Filter the DataFrame based on the selected time period
         if selected_time_period == 'Last 7 days':
@@ -289,8 +289,8 @@ with tab1:
         else:
             df2 = df
 
-        st.dataframe(data=df2.head(1))
-        st.dataframe(data=df2.tail(1))
+        st.dataframe(data=df.head(1))
+        st.dataframe(data=df.tail(1))
 
         fig2 = hourly_consumption2(df2)
         st.plotly_chart(fig2,use_container_width=True)
