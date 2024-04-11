@@ -292,7 +292,7 @@ with tab1:
         st.dataframe(data=df.head(1))
         st.dataframe(data=df.tail(1))
 
-        fig2 = hourly_consumption2(df2)
+        fig2 = hourly_consumption2(df)
         st.plotly_chart(fig2,use_container_width=True)
 
        
